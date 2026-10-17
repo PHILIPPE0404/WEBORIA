@@ -13,20 +13,37 @@
   
   <script>
     tailwind.config = {
-      theme:
-  colors:
-    primary: "#b75c32"
-    secondary: "#4d2c1b"
-    background: "#fff7e9"
-    surface: "#fffaf2"
-    border: "#e7d3b6"
-    accent: "#e9bd75"
-  typography:
-    fontFamilyBase: "Arial, sans-serif"
-    fontFamilySerif: "Georgia, 'Times New Roman', serif"
-  layout:
-    maxWidth: "1200px"
-    borderRadius: "8px"
+      theme: {
+        extend: {
+          colors: {
+            rust: {
+              500: '#c8683a',
+              600: '#b75c32',
+              700: '#964825',
+            },
+            brown: {
+              800: '#623a24',
+              900: '#4d2c1b',
+              950: '#341d11',
+            },
+            cream: {
+              50: '#ffffff',
+              100: '#fff7e9',
+              200: '#f7ebda',
+              300: '#e7d3b6',
+            },
+            gold: {
+              400: '#f3cc8a',
+              500: '#e9bd75',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
   </script>
 
   <style>
@@ -83,7 +100,7 @@
           Le Fournil <span class="text-rust-600 font-normal italic">du Village</span>
         </span>
         <span class="text-[10px] tracking-[0.25em] text-brown-800 uppercase font-semibold">
-          Boulangerie Artisanal
+          Boulangerie Artisanale
         </span>
       </a>
 
@@ -259,7 +276,7 @@
             <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Un feuilletage aéré et croustillant, confectionné avec du beurre Charentes-Poitou AOP.</p>
           </div>
           <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
-            <span class="font-serif font-bold text-xl text-brown-900 text-rust-600">1.40 €</span>
+            <span class="font-serif font-bold text-xl text-rust-600">1.40 €</span>
             <span class="text-xs text-brown-800/60 font-medium">Unité</span>
           </div>
         </div>
@@ -583,42 +600,34 @@
           itemCards.forEach(card => {
             if (filter === 'all' || card.getAttribute('data-category') === filter) {
               card.style.display = 'flex';
-              setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
             } else {
-              card.style.opacity = '0';
-              card.style.transform = 'translateY(10px)';
-              setTimeout(() => { card.style.display = 'none'; }, 200);
+              card.style.display = 'none';
             }
           });
         });
       });
 
-      // 3. Scroll Reveal Animations
+      // 3. Highlight Current Day in Schedule
+      const today = new Date().getDay();
+      const currentDayItem = document.querySelector(`#schedule-list li[data-day="${today}"]`);
+      if (currentDayItem) {
+        currentDayItem.classList.add('bg-gold-500/20', 'font-bold', 'text-brown-950');
+      }
+
+      // 4. Scroll Reveal Animation
       const reveals = document.querySelectorAll('.reveal');
-      
-      function revealOnScroll() {
+      const revealOnScroll = () => {
         const windowHeight = window.innerHeight;
-        reveals.forEach(reveal => {
-          const revealTop = reveal.getBoundingClientRect().top;
-          const revealPoint = 80;
-          if (revealTop < windowHeight - revealPoint) {
-            reveal.classList.add('active');
+        reveals.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 80) {
+            el.classList.add('active');
           }
         });
-      }
+      };
 
       window.addEventListener('scroll', revealOnScroll);
       revealOnScroll(); // Trigger initial check
-
-      // 4. Dynamic Day Highlight in Schedule
-      const currentDay = new Date().getDay(); // 0 = Dimanche, 1 = Lundi...
-      const scheduleItems = document.querySelectorAll('#schedule-list li');
-      
-      scheduleItems.forEach(li => {
-        if (parseInt(li.getAttribute('data-day')) === currentDay) {
-          li.classList.add('bg-gold-500/20', 'font-bold', 'border-l-4', 'border-rust-600', 'pl-2');
-        }
-      });
     });
   </script>
 </body>
