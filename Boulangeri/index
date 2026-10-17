@@ -13,38 +13,20 @@
   
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: {
-              50: '#FFFCF8',
-              100: '#FFF7E9',
-              200: '#FCEFD8',
-              300: '#F5DEB3',
-            },
-            brown: {
-              800: '#3D2214',
-              900: '#4D2C1B',
-              950: '#2A170E',
-            },
-            rust: {
-              500: '#C8653B',
-              600: '#B75C32',
-              700: '#964623',
-            },
-            gold: {
-              400: '#F3C982',
-              500: '#E9BD75',
-              600: '#D4A04B',
-            }
-          },
-          fontFamily: {
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
-            sans: ['"Outfit"', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
+      theme:
+  colors:
+    primary: "#b75c32"
+    secondary: "#4d2c1b"
+    background: "#fff7e9"
+    surface: "#fffaf2"
+    border: "#e7d3b6"
+    accent: "#e9bd75"
+  typography:
+    fontFamilyBase: "Arial, sans-serif"
+    fontFamilySerif: "Georgia, 'Times New Roman', serif"
+  layout:
+    maxWidth: "1200px"
+    borderRadius: "8px"
   </script>
 
   <style>
