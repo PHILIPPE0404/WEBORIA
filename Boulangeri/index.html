@@ -1,643 +1,634 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le Fournil du Village — Boulangerie Artisanal | Weboria</title>
-  
-  <!-- Tailwind CSS & Google Fonts -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: {
-              50: '#FFFCF8',
-              100: '#FFF7E9',
-              200: '#FCEFD8',
-              300: '#F5DEB3',
-            },
-            brown: {
-              800: '#3D2214',
-              900: '#4D2C1B',
-              950: '#2A170E',
-            },
-            rust: {
-              500: '#C8653B',
-              600: '#B75C32',
-              700: '#964623',
-            },
-            gold: {
-              400: '#F3C982',
-              500: '#E9BD75',
-              600: '#D4A04B',
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Atelier du Pain | Boulangerie Artisanale & Pâtisserie</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bakery: {
+                            gold: '#d4a373',
+                            cream: '#faedcd',
+                            dark: '#2b2b2b',
+                            olive: '#6b705c',
+                            sand: '#fefae0',
+                            accent: '#bc6c25'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
             }
-          },
-          fontFamily: {
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
-            sans: ['"Outfit"', 'system-ui', 'sans-serif'],
-          }
         }
-      }
-    }
-  </script>
-
-  <style>
-    /* Custom Scrollbar & Smooth Animations */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #FFF7E9;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #B75C32;
-      border-radius: 5px;
-    }
-    .glass-nav {
-      background: rgba(255, 247, 233, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .hero-gradient {
-      background: radial-gradient(circle at 80% 20%, rgba(233, 189, 117, 0.25) 0%, rgba(255, 247, 233, 0) 60%),
-                  linear-gradient(180deg, #FFF7E9 0%, #FCEFD8 100%);
-    }
-    .bread-glow {
-      filter: drop-shadow(0 20px 30px rgba(77, 44, 27, 0.15));
-    }
-    /* Scroll Reveal Animation Styles */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+    </script>
+    <style>
+        /* Custom smooth scroll & animations */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fefae0;
+            color: #2b2b2b;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
 </head>
-<body class="bg-cream-100 text-brown-900 font-sans antialiased selection:bg-gold-500 selection:text-brown-950">
+<body class="bg-bakery-sand text-bakery-dark antialiased selection:bg-bakery-gold selection:text-white">
 
-  <!-- Top Banner -->
-  <div class="bg-brown-900 text-cream-100 text-xs py-2 px-4 text-center tracking-wider font-medium uppercase border-b border-brown-800 flex items-center justify-center gap-2">
-    <span class="inline-block w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
-    Pain au levain naturel • Fabrication artisanale • Cuit sur pierre chaque matin
-  </div>
-
-  <!-- Header / Navigation -->
-  <header class="sticky top-0 z-50 glass-nav border-b border-cream-300/50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      
-      <!-- Logo -->
-      <a href="#" class="group flex flex-col">
-        <span class="font-serif text-2xl md:text-3xl font-bold tracking-tight text-brown-900 group-hover:text-rust-600 transition-colors">
-          Le Fournil <span class="text-rust-600 font-normal italic">du Village</span>
-        </span>
-        <span class="text-[10px] tracking-[0.25em] text-brown-800 uppercase font-semibold">
-          Boulangerie Artisanal
-        </span>
-      </a>
-
-      <!-- Desktop Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-        <a href="#specialites" class="hover:text-rust-600 transition-colors">Nos Spécialités</a>
-        <a href="#savoir-faire" class="hover:text-rust-600 transition-colors">Savoir-faire</a>
-        <a href="#histoire" class="hover:text-rust-600 transition-colors">Notre Histoire</a>
-        <a href="#infos" class="hover:text-rust-600 transition-colors">Horaires & Accès</a>
-      </nav>
-
-      <!-- CTA & Status -->
-      <div class="hidden lg:flex items-center gap-4">
-        <div id="status-badge" class="px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 bg-emerald-100 text-emerald-800 border border-emerald-200">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          Ouvert aujourd'hui
-        </div>
-        <a href="#specialites" class="bg-rust-600 hover:bg-rust-700 text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-lg shadow-rust-600/20 hover:shadow-rust-600/30 transition-all transform hover:-translate-y-0.5">
-          Commander
-        </a>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-brown-900 hover:text-rust-600 focus:outline-none" aria-label="Menu Mobile">
-        <svg id="menu-icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <svg id="menu-icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-
-    </div>
-
-    <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-b border-cream-300 px-6 py-6 transition-all duration-300">
-      <nav class="flex flex-col gap-4 text-base font-medium">
-        <a href="#specialites" class="mobile-link py-2 border-b border-cream-200">Nos Spécialités</a>
-        <a href="#savoir-faire" class="mobile-link py-2 border-b border-cream-200">Savoir-faire</a>
-        <a href="#histoire" class="mobile-link py-2 border-b border-cream-200">Notre Histoire</a>
-        <a href="#infos" class="mobile-link py-2 border-b border-cream-200">Horaires & Accès</a>
-        <div class="pt-2 flex flex-col gap-3">
-          <a href="#specialites" class="mobile-link text-center bg-rust-600 text-white py-3 rounded-xl font-semibold shadow-md">
-            Commander nos produits
-          </a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- Hero Section -->
-    <section class="hero-gradient min-h-[calc(100vh-5rem)] flex items-center relative overflow-hidden py-16 lg:py-24">
-      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
-        
-        <!-- Hero Text -->
-        <div class="lg:col-span-7 space-y-6 reveal">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/20 text-rust-700 border border-gold-500/30 text-xs font-semibold uppercase tracking-wider">
-            <span class="text-base">🌾</span> Artisans Boulangers Authentiques
-          </div>
-          
-          <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-brown-950">
-            Du bon pain.<br>
-            <span class="italic text-rust-600 font-normal">Du vrai bonheur.</span>
-          </h1>
-          
-          <p class="text-brown-800 text-lg sm:text-xl font-light leading-relaxed max-w-xl">
-            Des pains façonnés avec patience, du levain naturel rafraîchi chaque jour et des viennoiseries pur beurre dorées à souhait dans notre fournil.
-          </p>
-          
-          <div class="pt-4 flex flex-wrap items-center gap-4">
-            <a href="#specialites" class="bg-rust-600 hover:bg-rust-700 text-white px-7 py-4 rounded-xl text-base font-semibold shadow-xl shadow-rust-600/25 hover:shadow-rust-600/40 transition-all transform hover:-translate-y-1 flex items-center gap-3">
-              Découvrir nos spécialités
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+    <!-- Header & Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-[#fefae0]/90 backdrop-blur-md transition-all duration-300 border-b border-bakery-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2 group">
+                <div class="w-10 h-10 rounded-full bg-bakery-gold flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-wheat-awn text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl sm:text-2xl font-serif font-bold tracking-wide text-bakery-dark">L'Atelier du Pain</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-bakery-olive font-semibold">Artisan Boulanger</span>
+                </div>
             </a>
-            <a href="#savoir-faire" class="bg-white/80 hover:bg-white text-brown-900 border border-cream-300 px-7 py-4 rounded-xl text-base font-semibold transition-all shadow-sm hover:shadow-md">
-              Notre Savoir-faire
-            </a>
-          </div>
 
-          <!-- Badges / Highlights -->
-          <div class="pt-8 border-t border-brown-900/10 grid grid-cols-3 gap-4">
-            <div>
-              <div class="font-serif text-2xl sm:text-3xl font-bold text-brown-900">100%</div>
-              <div class="text-xs text-brown-800/80">Farines Bio & Locales</div>
-            </div>
-            <div>
-              <div class="font-serif text-2xl sm:text-3xl font-bold text-brown-900">24h</div>
-              <div class="text-xs text-brown-800/80">Fermentation Lente</div>
-            </div>
-            <div>
-              <div class="font-serif text-2xl sm:text-3xl font-bold text-brown-900">0%</div>
-              <div class="text-xs text-brown-800/80">Additifs & Conservateurs</div>
-            </div>
-          </div>
-        </div>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#accueil" class="hover:text-bakery-accent transition-colors">Accueil</a>
+                <a href="#histoire" class="hover:text-bakery-accent transition-colors">Notre Histoire</a>
+                <a href="#produits" class="hover:text-bakery-accent transition-colors">Nos Créations</a>
+                <a href="#avis" class="hover:text-bakery-accent transition-colors">Témoignages</a>
+                <a href="#contact" class="hover:text-bakery-accent transition-colors">Contact</a>
+            </nav>
 
-        <!-- Hero Visual / Graphic Card -->
-        <div class="lg:col-span-5 relative flex justify-center reveal">
-          <div class="relative w-full max-w-md aspect-square rounded-3xl bg-gradient-to-br from-gold-400 via-rust-600 to-brown-900 p-1 shadow-2xl bread-glow transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
-            <div class="w-full h-full bg-cream-100 rounded-[22px] p-8 flex flex-col justify-between items-center text-center relative overflow-hidden">
-              <!-- Background Decorative Pattern -->
-              <div class="absolute -right-12 -bottom-12 opacity-10 text-[200px] select-none font-serif">🥖</div>
-              
-              <div class="w-full flex justify-between items-center z-10">
-                <span class="text-xs font-semibold uppercase tracking-widest text-rust-600 bg-rust-500/10 px-3 py-1 rounded-full">Fait Maison</span>
-                <span class="text-xs text-brown-800/60 font-medium">Édition Artisanale</span>
-              </div>
-
-              <!-- Main Floating Emoji / Visual Icon -->
-              <div class="my-auto py-6 transform hover:scale-110 transition-transform duration-300 cursor-pointer">
-                <div class="text-9xl sm:text-[130px] filter drop-shadow-xl select-none">🥖</div>
-              </div>
-
-              <div class="z-10 bg-white/90 backdrop-blur-sm p-4 rounded-2xl border border-cream-200 w-full shadow-lg">
-                <p class="font-serif font-bold text-lg text-brown-900">La Baguette Tradition</p>
-                <p class="text-xs text-brown-800/80 mt-1">Croustillante, mie alvéolée, arômes de noisette</p>
-                <div class="mt-2 flex justify-between items-center pt-2 border-t border-cream-200">
-                  <span class="text-rust-600 font-bold text-sm">1.30 €</span>
-                  <span class="text-[10px] bg-gold-500/20 text-brown-900 px-2 py-0.5 rounded font-medium">Best-seller</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Interactive Specialties Section -->
-    <section id="specialites" class="py-20 max-w-7xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto space-y-4 reveal">
-        <span class="text-xs font-bold uppercase tracking-widest text-rust-600">Plaisirs Quotidiens</span>
-        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brown-950">Les Incontournables du Fournil</h2>
-        <p class="text-brown-800 text-base">Découvrez nos créations pétries à la main chaque matin avec des ingrédients rigoureusement sélectionnés.</p>
-        
-        <!-- Category Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-2 pt-6">
-          <button data-filter="all" class="filter-btn active px-5 py-2 rounded-full text-sm font-semibold bg-rust-600 text-white shadow-md transition-all">Tous</button>
-          <button data-filter="pains" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-cream-200 text-brown-900 hover:bg-cream-300 transition-all">Pains au Levain</button>
-          <button data-filter="viennoiseries" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-cream-200 text-brown-900 hover:bg-cream-300 transition-all">Viennoiseries</button>
-          <button data-filter="patisseries" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-cream-200 text-brown-900 hover:bg-cream-300 transition-all">Pâtisseries</button>
-        </div>
-      </div>
-
-      <!-- Items Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-        
-        <!-- Item 1 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="pains">
-          <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🥖</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Levain Bio</span>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Baguette Tradition</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Croûte dorée très croustillante, mie alvéolée et hydratée. Fermentation de 24h.</p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
-            <span class="font-serif font-bold text-xl text-brown-900">1.30 €</span>
-            <span class="text-xs text-brown-800/60 font-medium">250g</span>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="viennoiseries">
-          <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🥐</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Beurre AOP</span>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Croissant Pur Beurre</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Un feuilletage aéré et croustillant, confectionné avec du beurre Charentes-Poitou AOP.</p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
-            <span class="font-serif font-bold text-xl text-brown-900 text-rust-600">1.40 €</span>
-            <span class="text-xs text-brown-800/60 font-medium">Unité</span>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="pains">
-          <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🍞</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Meule Bio</span>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Pain de Campagne</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Mélange de farine T80 et de seigle, goût légèrement typé, excellente conservation.</p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
-            <span class="font-serif font-bold text-xl text-brown-900">4.20 €</span>
-            <span class="text-xs text-brown-800/60 font-medium">500g</span>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="viennoiseries">
-          <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🍫</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Chocolat Valrhona</span>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Pain au Chocolat</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Deux bâtons de chocolat noir pur beurre de cacao enrobés d'un feuilletage pur beurre.</p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
-            <span class="font-serif font-bold text-xl text-brown-900">1.50 €</span>
-            <span class="text-xs text-brown-800/60 font-medium">Unité</span>
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="patisseries">
-          <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🥧</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Saison</span>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Tarte aux Pommes</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Pâte sablée pur beurre, compotée maison et pommes locales finement tranchées.</p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
-            <span class="font-serif font-bold text-xl text-brown-900">18.00 €</span>
-            <span class="text-xs text-brown-800/60 font-medium">6 parts</span>
-          </div>
-        </div>
-
-        <!-- Item 6 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="pains">
-          <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🌾</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Grainé</span>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Pain aux Graines</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Graines de tournesol, lin, sésame et pavot torréfiées pour un goût de noisette intense.</p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
-            <span class="font-serif font-bold text-xl text-brown-900">3.80 €</span>
-            <span class="text-xs text-brown-800/60 font-medium">400g</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Savoir-Faire Section -->
-    <section id="savoir-faire" class="bg-brown-900 text-cream-100 py-24 relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-          
-          <div class="space-y-6 reveal">
-            <span class="text-xs font-bold uppercase tracking-widest text-gold-400">Notre Philosophie</span>
-            <h2 class="font-serif text-4xl sm:text-5xl font-bold leading-tight">
-              Le temps est notre <br>
-              <span class="text-gold-500 italic">meilleur ingrédient.</span>
-            </h2>
-            <p class="text-cream-200/80 leading-relaxed text-base sm:text-lg font-light">
-              Chez Le Fournil du Village, nous refusons les raccourcis. Notre pain prend le temps qu'il faut pour développer ses arômes naturels et une digestibilité optimale.
-            </p>
-
-            <div class="space-y-4 pt-4">
-              <div class="flex items-start gap-4 p-4 rounded-xl bg-brown-800/50 border border-brown-800">
-                <span class="text-2xl">🌱</span>
-                <div>
-                  <h4 class="font-bold font-serif text-gold-400">Farines Locales & Bio</h4>
-                  <p class="text-xs text-cream-200/70 mt-1">Approvisionnement auprès de moulins situés à moins de 80km du fournil.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4 p-4 rounded-xl bg-brown-800/50 border border-brown-800">
-                <span class="text-2xl">⏳</span>
-                <div>
-                  <h4 class="font-bold font-serif text-gold-400">Fermentation sur 24 Heures</h4>
-                  <p class="text-xs text-cream-200/70 mt-1">Développement lent des arômes sans aucun ajout de levure chimique.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4 p-4 rounded-xl bg-brown-800/50 border border-brown-800">
-                <span class="text-2xl">🔥</span>
-                <div>
-                  <h4 class="font-bold font-serif text-gold-400">Cuisson sur Pierre</h4>
-                  <p class="text-xs text-cream-200/70 mt-1">Une sole en pierre réfractaire pour une croûte croustillante et dorée.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Feature Card Graphic -->
-          <div class="reveal flex justify-center">
-            <div class="relative w-full max-w-md bg-brown-800 p-8 rounded-3xl border border-gold-500/20 shadow-2xl text-center space-y-6">
-              <div class="text-7xl">🌾</div>
-              <blockquote class="font-serif italic text-xl text-cream-100">
-                « Un bon pain se reconnaît à sa croûte qui chante à la sortie du four et à sa mie qui fleure bon le levain. »
-              </blockquote>
-              <div class="pt-4 border-t border-brown-700">
-                <p class="font-bold text-gold-400">Philippe & Son Équipe</p>
-                <p class="text-xs text-cream-300/60">Maîtres Boulangers</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Histoire Section -->
-    <section id="histoire" class="py-24 max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-5 reveal">
-          <div class="relative bg-cream-200 rounded-3xl p-8 border border-cream-300 text-center">
-            <span class="text-8xl">🏪</span>
-            <div class="mt-6 bg-white p-4 rounded-2xl shadow-sm">
-              <p class="font-serif font-bold text-lg text-brown-900">Ancré dans le village</p>
-              <p class="text-xs text-brown-800/70 mt-1">Depuis plus de 15 ans au service des gourmands.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="lg:col-span-7 space-y-6 reveal">
-          <span class="text-xs font-bold uppercase tracking-widest text-rust-600">Notre Histoire</span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brown-950">
-            Une passion transmise de génération en génération.
-          </h2>
-          <p class="text-brown-800 leading-relaxed">
-            Fondée au cœur du village, notre boulangerie est un lieu de vie et de partage. Chaque jour dès 4h du matin, les effluves de pain chaud et de beurre frais embaument la rue pour réveiller les habitants.
-          </p>
-          <p class="text-brown-800 leading-relaxed">
-            Nous préservons les méthodes traditionnelles de panification tout en apportant une touche de modernité à nos recettes pour vous offrir le meilleur au quotidien.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Infos & Dynamic Schedule Section -->
-    <section id="infos" class="bg-cream-200/60 py-20 border-t border-cream-300">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto space-y-3 mb-12 reveal">
-          <span class="text-xs font-bold uppercase tracking-widest text-rust-600">Venez Nous Voir</span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brown-950">Horaires & Localisation</h2>
-          <p class="text-brown-800 text-sm">Préparez votre visite au fournil ou passez votre commande par téléphone.</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-          <!-- Address Card -->
-          <div class="bg-white p-8 rounded-2xl border border-cream-300/80 shadow-sm reveal flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="w-12 h-12 bg-rust-500/10 text-rust-600 rounded-xl flex items-center justify-center text-2xl">📍</div>
-              <h3 class="font-serif text-xl font-bold text-brown-900">Notre Adresse</h3>
-              <p class="text-sm text-brown-800/80 leading-relaxed">
-                12 Place de l'Église<br>
-                75000 Le Village, France
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-cream-200">
-              <a href="https://maps.google.com" target="_blank" rel="noopener" class="text-xs font-bold text-rust-600 hover:text-rust-700 flex items-center gap-1">
-                Ouvrir dans Google Maps ↗
-              </a>
-            </div>
-          </div>
-
-          <!-- Hours Card with Dynamic Highlight -->
-          <div class="bg-white p-8 rounded-2xl border border-cream-300/80 shadow-sm reveal flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="w-12 h-12 bg-gold-500/20 text-brown-900 rounded-xl flex items-center justify-center text-2xl">⏰</div>
-              <h3 class="font-serif text-xl font-bold text-brown-900">Horaires d'Ouverture</h3>
-              
-              <ul class="text-xs space-y-2 text-brown-800/80" id="schedule-list">
-                <li data-day="1" class="flex justify-between p-1.5 rounded"><span>Lundi</span> <span class="font-semibold">06:30 – 19:30</span></li>
-                <li data-day="2" class="flex justify-between p-1.5 rounded"><span>Mardi</span> <span class="font-semibold">06:30 – 19:30</span></li>
-                <li data-day="3" class="flex justify-between p-1.5 rounded"><span>Mercredi</span> <span class="font-semibold">06:30 – 19:30</span></li>
-                <li data-day="4" class="flex justify-between p-1.5 rounded"><span>Jeudi</span> <span class="font-semibold">06:30 – 19:30</span></li>
-                <li data-day="5" class="flex justify-between p-1.5 rounded"><span>Vendredi</span> <span class="font-semibold">06:30 – 19:30</span></li>
-                <li data-day="6" class="flex justify-between p-1.5 rounded"><span>Samedi</span> <span class="font-semibold">07:00 – 19:00</span></li>
-                <li data-day="0" class="flex justify-between p-1.5 rounded text-rust-600"><span>Dimanche</span> <span class="font-semibold">Fermé</span></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Contact Card -->
-          <div class="bg-white p-8 rounded-2xl border border-cream-300/80 shadow-sm reveal flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="w-12 h-12 bg-rust-500/10 text-rust-600 rounded-xl flex items-center justify-center text-2xl">📞</div>
-              <h3 class="font-serif text-xl font-bold text-brown-900">Contact & Commandes</h3>
-              <p class="text-sm text-brown-800/80 leading-relaxed">
-                Pour vos commandes spéciales ou événements (gâteaux, pièces montées, pains spéciaux).
-              </p>
-              <div class="pt-2">
-                <a href="tel:0123456789" class="font-serif text-2xl font-bold text-rust-600 hover:underline">
-                  01 23 45 67 89
+            <!-- Action Button -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="#produits" class="px-5 py-2.5 rounded-full bg-bakery-accent text-white text-sm font-semibold shadow-lg shadow-bakery-accent/20 hover:bg-[#a5581c] transition-all transform hover:-translate-y-0.5">
+                    Commander en ligne
                 </a>
-              </div>
             </div>
-            <div class="mt-6 pt-4 border-t border-cream-200">
-              <span class="text-xs text-brown-800/60">Réservation 24h à l'avance recommandée</span>
-            </div>
-          </div>
 
+            <!-- Mobile menu button -->
+            <button id="menu-btn" class="md:hidden text-bakery-dark focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
         </div>
-      </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#fefae0] border-b border-bakery-gold/20 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#accueil" class="block py-2 text-bakery-dark font-medium border-b border-bakery-gold/10">Accueil</a>
+            <a href="#histoire" class="block py-2 text-bakery-dark font-medium border-b border-bakery-gold/10">Notre Histoire</a>
+            <a href="#produits" class="block py-2 text-bakery-dark font-medium border-b border-bakery-gold/10">Nos Créations</a>
+            <a href="#avis" class="block py-2 text-bakery-dark font-medium border-b border-bakery-gold/10">Témoignages</a>
+            <a href="#contact" class="block py-2 text-bakery-dark font-medium">Contact</a>
+            <div class="pt-2">
+                <a href="#produits" class="block text-center w-full py-3 rounded-full bg-bakery-accent text-white font-semibold shadow-md">Commander</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-[#faedcd]/40 to-[#fefae0]">
+        <!-- Background decorative pattern -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4a373_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Text Content -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left animate-fade-in">
+                <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-bakery-gold/20 text-bakery-accent text-xs font-bold uppercase tracking-widest">
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    <span>Artisan Boulanger - Tradition & Passion</span>
+                </span>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-bakery-dark leading-tight">
+                    L'art du bon pain, <br><span class="italic text-bakery-accent">pétri avec amour.</span>
+                </h1>
+                <p class="text-base sm:text-lg text-bakery-dark/80 max-w-2xl mx-auto lg:mx-0 font-light">
+                    Découvrez des farines anciennes biologiques, un levain naturel fermenté avec patience, et une croûte dorée qui éveille tous vos sens. Bienvenue dans notre univers gourmand.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
+                    <a href="#produits" class="w-full sm:w-auto px-8 py-4 rounded-full bg-bakery-dark text-white font-semibold text-sm shadow-xl hover:bg-bakery-accent transition-all transform hover:-translate-y-1 text-center">
+                        Explorer nos produits
+                    </a>
+                    <a href="#histoire" class="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-bakery-gold text-bakery-dark font-semibold text-sm hover:bg-bakery-gold/10 transition-all text-center">
+                        Notre philosophie
+                    </a>
+                </div>
+
+                <!-- Stats summary -->
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-bakery-gold/20 max-w-lg mx-auto lg:mx-0">
+                    <div>
+                        <span class="block text-2xl sm:text-3xl font-serif font-bold text-bakery-accent">100%</span>
+                        <span class="text-xs text-bakery-olive uppercase tracking-wider">Bio & Local</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl sm:text-3xl font-serif font-bold text-bakery-accent">48h</span>
+                        <span class="text-xs text-bakery-olive uppercase tracking-wider">Fermentation</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl sm:text-3xl font-serif font-bold text-bakery-accent">Artisanal</span>
+                        <span class="text-xs text-bakery-olive uppercase tracking-wider">Fait main</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Hero Image Grid -->
+            <div class="lg:col-span-5 relative">
+                <div class="relative mx-auto w-72 h-96 sm:w-96 sm:h-[450px] rounded-3xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Pain artisanal frais" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-bakery-dark/60 via-transparent to-transparent flex items-end p-6">
+                        <div class="text-white">
+                            <span class="text-xs uppercase tracking-widest bg-bakery-accent px-2.5 py-1 rounded-full font-bold">Fraîcheur du jour</span>
+                            <p class="text-xl font-serif font-bold mt-2">Tradition & Croustillant</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Floating badge element -->
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl hidden sm:flex items-center space-x-3 border border-bakery-gold/20 animate-bounce">
+                    <div class="w-12 h-12 rounded-full bg-bakery-cream flex items-center justify-center text-bakery-accent text-xl">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold uppercase text-bakery-olive">Élu Meilleur Artisan</p>
+                        <p class="text-sm font-serif font-bold text-bakery-dark">Concours Régional</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="bg-brown-950 text-cream-100 border-t border-brown-900 py-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-brown-900">
-        
-        <div class="space-y-4">
-          <span class="font-serif text-2xl font-bold tracking-tight text-cream-100">
-            Le Fournil <span class="text-rust-500 font-normal italic">du Village</span>
-          </span>
-          <p class="text-xs text-cream-300/70 leading-relaxed">
-            Boulangerie artisanale engagée pour la qualité, le goût et la tradition française.
-          </p>
+    <!-- Histoire / Philosophie Section -->
+    <section id="histoire" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Images -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="rounded-2xl overflow-hidden shadow-lg h-60">
+                            <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=600&q=80" alt="Pétrissage du pain" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-lg h-40 bg-bakery-cream flex items-center justify-center p-6 text-center">
+                            <div>
+                                <i class="fa-solid fa-seedling text-3xl text-bakery-accent mb-2"></i>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-bakery-dark">Farines 100% Île-de-France</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <div class="rounded-2xl overflow-hidden shadow-lg h-40 bg-bakery-dark text-white flex items-center justify-center p-6 text-center">
+                            <div>
+                                <i class="fa-solid fa-fire-burner text-3xl text-bakery-gold mb-2"></i>
+                                <p class="text-xs font-semibold uppercase tracking-wider text-bakery-cream">Cuisson au four à pierre</p>
+                            </div>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-lg h-60">
+                            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=600&q=80" alt="Viennoiseries dorées" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Text Content -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-bakery-accent">Notre Philosophie</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-bakery-dark leading-tight">
+                        Le respect du temps et des ingrédients authentiques.
+                    </h2>
+                    <p class="text-bakery-dark/80 font-light leading-relaxed">
+                        Chez <strong class="font-semibold text-bakery-dark">L'Atelier du Pain</strong>, nous croyons que le meilleur pain demande trois choses simples : de la patience, des matières premières d'exception et un savoir-faire transmis de génération en génération.
+                    </p>
+                    <p class="text-bakery-dark/80 font-light leading-relaxed">
+                        Nos blés sont cultivés par des agriculteurs locaux engagés dans l'agriculture biologique. Pas d'additifs, pas de conservateurs artificiels, juste de la farine pure, de l'eau filtrée, du sel de mer et notre levain nourri chaque jour avec amour.
+                    </p>
+
+                    <!-- Bullet points -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-bakery-gold/20 flex items-center justify-center text-bakery-accent flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm font-medium text-bakery-dark">Fermentation lente sur levain naturel</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-bakery-gold/20 flex items-center justify-center text-bakery-accent flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm font-medium text-bakery-dark">Beurre AOP Charentes-Poitou</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-bakery-gold/20 flex items-center justify-center text-bakery-accent flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm font-medium text-bakery-dark">Chocolat pur beurre de cacao</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 rounded-full bg-bakery-gold/20 flex items-center justify-center text-bakery-accent flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm font-medium text-bakery-dark">Pains cuits tout au long de la journée</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits Phares Section -->
+    <section id="produits" class="py-24 bg-bakery-sand relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-bakery-accent">Nos Incontournables</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-bakery-dark">
+                    Le meilleur de notre fournil
+                </h2>
+                <p class="text-bakery-dark/80 font-light">
+                    Laissez-vous tenter par nos créations signatures, préparées chaque matin dès l'aube pour enchanter vos papilles.
+                </p>
+            </div>
+
+            <!-- Product Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between border border-bakery-gold/10">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=600&q=80" alt="Baguette de Tradition" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-bakery-accent text-white text-xs font-bold px-3 py-1 rounded-full shadow">Phare</span>
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-serif font-bold text-bakery-dark">Baguette Tradition</h3>
+                                <span class="text-bakery-accent font-bold">1,35 €</span>
+                            </div>
+                            <p class="text-sm text-bakery-dark/70 font-light mt-2">
+                                Alvéolée, croustillante à l'extérieur et moelleuse à l'intérieur, façonnée à la main.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Baguette Tradition', '1,35 €', 'Alvéolée, croustillante à l\'extérieur et moelleuse à l\'intérieur, façonnée à la main selon la pure tradition française.')" class="w-full py-2.5 rounded-full bg-bakery-sand text-bakery-dark font-semibold text-sm hover:bg-bakery-gold hover:text-white transition-colors">
+                            Découvrir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between border border-bakery-gold/10">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Croissant Pur Beurre" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-bakery-gold text-white text-xs font-bold px-3 py-1 rounded-full shadow">Best-seller</span>
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-serif font-bold text-bakery-dark">Croissant Pur Beurre</h3>
+                                <span class="text-bakery-accent font-bold">1,40 €</span>
+                            </div>
+                            <p class="text-sm text-bakery-dark/70 font-light mt-2">
+                                Feilletage aérien, croustillant incomparable au beurre AOP Charentes-Poitou.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Croissant Pur Beurre', '1,40 €', 'Feilletage aérien, croustillant incomparable au beurre AOP Charentes-Poitou. Préparé chaque nuit par nos maîtres viennois.')" class="w-full py-2.5 rounded-full bg-bakery-sand text-bakery-dark font-semibold text-sm hover:bg-bakery-gold hover:text-white transition-colors">
+                            Découvrir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between border border-bakery-gold/10">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Brioche Artisanale" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-bakery-olive text-white text-xs font-bold px-3 py-1 rounded-full shadow">Gourmand</span>
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-serif font-bold text-bakery-dark">Brioche Tressée</h3>
+                                <span class="text-bakery-accent font-bold">6,50 €</span>
+                            </div>
+                            <p class="text-sm text-bakery-dark/70 font-light mt-2">
+                                Une mie filante, parfumée à la fleur d'oranger et au sucre perlé croquant.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Brioche Tressée', '6,50 €', 'Une mie filante, parfumée à la fleur d\'oranger et au sucre perlé croquant. Idéal pour vos petits-déjeuners en famille.')" class="w-full py-2.5 rounded-full bg-bakery-sand text-bakery-dark font-semibold text-sm hover:bg-bakery-gold hover:text-white transition-colors">
+                            Découvrir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between border border-bakery-gold/10">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=600&q=80" alt="Tarte aux fruits de saison" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-bakery-accent text-white text-xs font-bold px-3 py-1 rounded-full shadow">De Saison</span>
+                    </div>
+                    <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-serif font-bold text-bakery-dark">Tarte de Saison</h3>
+                                <span class="text-bakery-accent font-bold">4,80 €</span>
+                            </div>
+                            <p class="text-sm text-bakery-dark/70 font-light mt-2">
+                                Pâte sablée croustillante, crème légère à la vanille bourbon et fruits frais du marché.
+                            </p>
+                        </div>
+                        <button onclick="openModal('Tarte de Saison', '4,80 €', 'Pâte sablée croustillante, crème légère à la vanille bourbon et fruits frais du marché. Un délice acidulé et sucré.')" class="w-full py-2.5 rounded-full bg-bakery-sand text-bakery-dark font-semibold text-sm hover:bg-bakery-gold hover:text-white transition-colors">
+                            Découvrir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages / Avis Clients -->
+    <section id="avis" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-bakery-accent">Ce qu'ils en disent</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-bakery-dark">
+                    La parole à nos gourmands
+                </h2>
+                <p class="text-bakery-dark/80 font-light">
+                    Découvrez les retours de nos clients fidèles qui partagent notre passion pour le bon pain.
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-bakery-sand/60 p-8 rounded-3xl relative border border-bakery-gold/10 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex text-amber-500 space-x-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-bakery-dark/80 font-light italic text-sm leading-relaxed">
+                            "Le meilleur croissant de toute la ville ! Le feuilletage est parfait, croustillant à l'extérieur et super fondant à l'intérieur. L'accueil est toujours chaleureux."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-6 mt-6 border-t border-bakery-gold/20">
+                        <div class="w-10 h-10 rounded-full bg-bakery-gold text-white font-serif font-bold flex items-center justify-center">
+                            MC
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-bakery-dark text-sm">Marie Curie</h4>
+                            <span class="text-xs text-bakery-olive">Cliente fidèle depuis 2 ans</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-bakery-sand/60 p-8 rounded-3xl relative border border-bakery-gold/10 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex text-amber-500 space-x-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-bakery-dark/80 font-light italic text-sm leading-relaxed">
+                            "Enfin une boulangerie qui respecte le vrai goût du pain au levain ! La baguette tradition se conserve super bien et a ce petit goût de noisette incomparable."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-6 mt-6 border-t border-bakery-gold/20">
+                        <div class="w-10 h-10 rounded-full bg-bakery-accent text-white font-serif font-bold flex items-center justify-center">
+                            TL
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-bakery-dark text-sm">Thomas L.</h4>
+                            <span class="text-xs text-bakery-olive">Amateur de pain bio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-bakery-sand/60 p-8 rounded-3xl relative border border-bakery-gold/10 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex text-amber-500 space-x-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-bakery-dark/80 font-light italic text-sm leading-relaxed">
+                            "Leurs brioches et tartes de saison sont devenues indispensables pour nos repas de famille du dimanche. Qualité irréprochable et équipe au top !"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 pt-6 mt-6 border-t border-bakery-gold/20">
+                        <div class="w-10 h-10 rounded-full bg-bakery-olive text-white font-serif font-bold flex items-center justify-center">
+                            SB
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-bakery-dark text-sm">Sophie Bernard</h4>
+                            <span class="text-xs text-bakery-olive">Habituée du quartier</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact" class="bg-bakery-dark text-bakery-cream pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+            <!-- Col 1: Brand -->
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full bg-bakery-gold flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid fa-wheat-awn text-lg"></i>
+                    </div>
+                    <span class="text-xl font-serif font-bold tracking-wide text-white">L'Atelier du Pain</span>
+                </div>
+                <p class="text-bakery-cream/70 text-sm font-light leading-relaxed">
+                    Boulangerie artisanale d'exception. Farines biologiques, levain naturel et passion transmise chaque jour dans le respect de la tradition.
+                </p>
+                <div class="flex space-x-4 pt-2">
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-bakery-accent transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-bakery-accent transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-bakery-accent transition-colors"><i class="fa-brands fa-tripadvisor text-sm"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Horaires -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-serif font-bold text-white">Horaires d'ouverture</h4>
+                <ul class="space-y-2 text-sm text-bakery-cream/80 font-light">
+                    <li class="flex justify-between border-b border-white/5 pb-1">
+                        <span>Lundi - Vendredi :</span>
+                        <span class="font-medium text-white">06:30 - 20:00</span>
+                    </li>
+                    <li class="flex justify-between border-b border-white/5 pb-1">
+                        <span>Samedi :</span>
+                        <span class="font-medium text-white">07:00 - 20:00</span>
+                    </li>
+                    <li class="flex justify-between pb-1">
+                        <span>Dimanche :</span>
+                        <span class="font-medium text-white">07:00 - 13:30</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Adresse -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-serif font-bold text-white">Retrouvez-nous</h4>
+                <div class="space-y-3 text-sm text-bakery-cream/80 font-light">
+                    <p class="flex items-start space-x-3">
+                        <i class="fa-solid fa-location-dot text-bakery-gold mt-1"></i>
+                        <span>14 Rue du Pain Doré, <br>75011 Paris, France</span>
+                    </p>
+                    <p class="flex items-center space-x-3">
+                        <i class="fa-solid fa-phone text-bakery-gold"></i>
+                        <span>+33 1 42 68 90 00</span>
+                    </p>
+                    <p class="flex items-center space-x-3">
+                        <i class="fa-solid fa-envelope text-bakery-gold"></i>
+                        <span>contact@latelierdupain.fr</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Col 4: Newsletter -->
+            <div class="space-y-4">
+                <h4 class="text-lg font-serif font-bold text-white">Newsletter Gourmande</h4>
+                <p class="text-sm text-bakery-cream/70 font-light">
+                    Recevez nos actualités, nos pains du mois et nos offres exclusives.
+                </p>
+                <form onsubmit="event.preventDefault(); showToast('Merci pour votre inscription !');" class="space-y-2">
+                    <input type="email" placeholder="Votre adresse email" required class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/10 text-white placeholder-bakery-cream/40 text-sm focus:outline-none focus:border-bakery-gold">
+                    <button type="submit" class="w-full py-2.5 rounded-xl bg-bakery-accent text-white font-semibold text-sm hover:bg-[#a5581c] transition-colors">
+                        S'inscrire
+                    </button>
+                </form>
+            </div>
         </div>
 
-        <div>
-          <h4 class="font-serif text-sm font-bold text-gold-400 uppercase tracking-wider mb-4">Navigation</h4>
-          <ul class="text-xs space-y-2 text-cream-200/80">
-            <li><a href="#specialites" class="hover:text-gold-400 transition-colors">Nos Spécialités</a></li>
-            <li><a href="#savoir-faire" class="hover:text-gold-400 transition-colors">Savoir-faire</a></li>
-            <li><a href="#histoire" class="hover:text-gold-400 transition-colors">Notre Histoire</a></li>
-            <li><a href="#infos" class="hover:text-gold-400 transition-colors">Horaires & Contact</a></li>
-          </ul>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-bakery-cream/50">
+            <p>&copy; 2026 L'Atelier du Pain. Tous droits réservés.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <a href="#" class="hover:text-bakery-cream">Mentions légales</a>
+                <a href="#" class="hover:text-bakery-cream">Politique de confidentialité</a>
+                <a href="#" class="hover:text-bakery-cream">Gestion des cookies</a>
+            </div>
         </div>
+    </footer>
 
-        <div>
-          <h4 class="font-serif text-sm font-bold text-gold-400 uppercase tracking-wider mb-4">Engagements</h4>
-          <ul class="text-xs space-y-2 text-cream-200/80">
-            <li>🌾 100% Farine Française</li>
-            <li>🧈 Beurre AOP Charentes-Poitou</li>
-            <li>🥖 Levain Naturel Maison</li>
-            <li>♻️ Anti-gaspillage alimentaire</li>
-          </ul>
+    <!-- Interactive Product Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-md w-full mx-4 p-8 relative shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-bakery-sand flex items-center justify-center text-bakery-dark hover:bg-bakery-gold hover:text-white transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span class="text-xs uppercase tracking-widest text-bakery-accent font-bold">Détail du Produit</span>
+            <h3 id="modal-title" class="text-2xl font-serif font-bold text-bakery-dark mt-2">Nom du produit</h3>
+            <p id="modal-price" class="text-xl font-bold text-bakery-accent mt-1">0,00 €</p>
+            <p id="modal-desc" class="text-sm text-bakery-dark/80 font-light mt-4 leading-relaxed">Description détaillée du produit...</p>
+            
+            <div class="mt-8 pt-4 border-t border-bakery-gold/20 flex space-x-4">
+                <button onclick="closeModal(); showToast('Article ajouté à votre commande !');" class="flex-1 py-3 rounded-full bg-bakery-accent text-white font-semibold text-sm shadow-lg hover:bg-[#a5581c] transition-colors">
+                    Commander en boutique
+                </button>
+            </div>
         </div>
-
-        <div>
-          <h4 class="font-serif text-sm font-bold text-gold-400 uppercase tracking-wider mb-4">Démonstration</h4>
-          <p class="text-xs text-cream-300/70 mb-3">
-            Site web de démonstration créé pour le portfolio Weboria.
-          </p>
-          <span class="inline-block bg-rust-600/30 text-rust-400 border border-rust-500/30 text-[10px] px-2.5 py-1 rounded font-mono">
-            Concept Weboria © 2026
-          </span>
-        </div>
-
-      </div>
-
-      <div class="pt-8 text-center md:flex md:justify-between items-center text-xs text-cream-300/50">
-        <p>© 2026 Le Fournil du Village — Tous droits réservés.</p>
-        <p class="mt-2 md:mt-0">Conçu avec passion pour la boulangerie artisanale</p>
-      </div>
     </div>
-  </footer>
 
-  <!-- JavaScript Interactivity -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // 1. Mobile Menu Toggle
-      const menuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const iconOpen = document.getElementById('menu-icon-open');
-      const iconClose = document.getElementById('menu-icon-close');
-      const mobileLinks = document.querySelectorAll('.mobile-link');
+    <!-- Toast Notification Box -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 bg-bakery-dark text-white px-6 py-3 rounded-2xl shadow-xl transform translate-y-20 opacity-0 transition-all duration-300 flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-bakery-gold text-lg"></i>
+        <span id="toast-msg" class="text-sm font-medium">Notification message</span>
+    </div>
 
-      function toggleMenu() {
-        mobileMenu.classList.toggle('hidden');
-        iconOpen.classList.toggle('hidden');
-        iconClose.classList.toggle('hidden');
-      }
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-      menuBtn.addEventListener('click', toggleMenu);
-      mobileLinks.forEach(link => link.addEventListener('click', () => {
-        if (!mobileMenu.classList.contains('hidden')) toggleMenu();
-      }));
-
-      // 2. Category Filter Interactivity
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const itemCards = document.querySelectorAll('.item-card');
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Update active button state
-          filterBtns.forEach(b => {
-            b.classList.remove('bg-rust-600', 'text-white', 'shadow-md');
-            b.classList.add('bg-cream-200', 'text-brown-900');
-          });
-          btn.classList.remove('bg-cream-200', 'text-brown-900');
-          btn.classList.add('bg-rust-600', 'text-white', 'shadow-md');
-
-          const filter = btn.getAttribute('data-filter');
-
-          itemCards.forEach(card => {
-            if (filter === 'all' || card.getAttribute('data-category') === filter) {
-              card.style.display = 'flex';
-              setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
-            } else {
-              card.style.opacity = '0';
-              card.style.transform = 'translateY(10px)';
-              setTimeout(() => { card.style.display = 'none'; }, 200);
-            }
-          });
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-      });
 
-      // 3. Scroll Reveal Animations
-      const reveals = document.querySelectorAll('.reveal');
-      
-      function revealOnScroll() {
-        const windowHeight = window.innerHeight;
-        reveals.forEach(reveal => {
-          const revealTop = reveal.getBoundingClientRect().top;
-          const revealPoint = 80;
-          if (revealTop < windowHeight - revealPoint) {
-            reveal.classList.add('active');
-          }
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
-      }
 
-      window.addEventListener('scroll', revealOnScroll);
-      revealOnScroll(); // Trigger initial check
+        // Modal Functionality
+        const modal = document.getElementById('product-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalTitle = document.getElementById('modal-title');
+        const modalPrice = document.getElementById('modal-price');
+        const modalDesc = document.getElementById('modal-desc');
 
-      // 4. Dynamic Day Highlight in Schedule
-      const currentDay = new Date().getDay(); // 0 = Dimanche, 1 = Lundi...
-      const scheduleItems = document.querySelectorAll('#schedule-list li');
-      
-      scheduleItems.forEach(li => {
-        if (parseInt(li.getAttribute('data-day')) === currentDay) {
-          li.classList.add('bg-gold-500/20', 'font-bold', 'border-l-4', 'border-rust-600', 'pl-2');
+        function openModal(title, price, desc) {
+            modalTitle.innerText = title;
+            modalPrice.innerText = price;
+            modalDesc.innerText = desc;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
         }
-      });
-    });
-  </script>
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close modal on click outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Toast Notification System
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+
+        // Sticky Header Effect on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                header.classList.add('shadow-md', 'bg-[#fefae0]/95');
+            } else {
+                header.classList.remove('shadow-md', 'bg-[#fefae0]/90');
+            }
+        });
+    </script>
 </body>
 </html>
