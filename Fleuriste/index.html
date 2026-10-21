@@ -1,107 +1,662 @@
-
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Découvrez notre univers floral et nos bouquets de saison.">
-  <title>Maison Fleurie — Artisan fleuriste</title>
-  <link rel="stylesheet" href="style.css">
+  <title>L'Atelier Floral — Artisan Fleuriste | Créations & Bouquets</title>
+  
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: {
+              50: '#f4f6f4',
+              100: '#e3e8e3',
+              600: '#6b8068',
+              700: '#546652',
+              800: '#3d4b3b',
+              900: '#263025',
+            },
+            rose: {
+              50: '#fdf8f8',
+              100: '#f8ecec',
+              200: '#f0d8d8',
+              600: '#c87d7d',
+              700: '#ab5c5c',
+            },
+            terracotta: {
+              500: '#d9826c',
+              600: '#c0634c',
+            },
+            cream: {
+              50: '#fcfbf7',
+              100: '#f7f4ec',
+              200: '#eee8d9',
+              300: '#e2d7c0',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7F4EC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #6B8068;
+      border-radius: 5px;
+    }
+    .glass-nav {
+      background: rgba(247, 244, 236, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .hero-gradient {
+      background: radial-gradient(circle at 80% 20%, rgba(200, 125, 125, 0.15) 0%, rgba(247, 244, 236, 0) 60%),
+                  linear-gradient(180deg, #F7F4EC 0%, #EFEAD9 100%);
+    }
+    .glow-card {
+      filter: drop-shadow(0 20px 30px rgba(61, 75, 59, 0.1));
+    }
+    /* Scroll Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
-<body>
-  <header class="header">
-    <a class="logo" href="#">Maison Fleurie<span>.</span></a>
+<body class="bg-cream-100 text-sage-900 font-sans antialiased selection:bg-rose-200 selection:text-sage-900">
 
-    <nav class="nav">
-      <a href="#accueil">Accueil</a>
-      <a href="#bouquets">Nos bouquets</a>
-      <a href="#histoire">Notre histoire</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <!-- Top Banner -->
+  <div class="bg-sage-800 text-cream-100 text-xs py-2.5 px-4 text-center tracking-wider font-medium uppercase border-b border-sage-700 flex items-center justify-center gap-2">
+    <span class="inline-block w-2 h-2 rounded-full bg-terracotta-500 animate-pulse"></span>
+    Fleurs fraîches & de saison • Arrivages quotidiens • Livraison dans toute la ville
+  </div>
 
-    <a class="header-button" href="#contact">Nous contacter ↗</a>
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-cream-300/50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="group flex flex-col">
+        <span class="font-serif text-2xl md:text-3xl font-semibold tracking-tight text-sage-900 group-hover:text-rose-600 transition-colors">
+          L'Atelier <span class="text-rose-600 font-normal italic">Floral</span>
+        </span>
+        <span class="text-[10px] tracking-[0.25em] text-sage-700 uppercase font-semibold">
+          Artisan Fleuriste
+        </span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#creations" class="hover:text-rose-600 transition-colors">Nos Créations</a>
+        <a href="#engagements" class="hover:text-rose-600 transition-colors">Nos Engagements</a>
+        <a href="#evenements" class="hover:text-rose-600 transition-colors">Événements</a>
+        <a href="#infos" class="hover:text-rose-600 transition-colors">Horaires & Contact</a>
+      </nav>
+
+      <!-- CTA & Status -->
+      <div class="hidden lg:flex items-center gap-4">
+        <div id="status-badge" class="px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 bg-emerald-100 text-emerald-800 border border-emerald-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          Boutique Ouverte
+        </div>
+        <a href="#creations" class="bg-sage-600 hover:bg-sage-700 text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-lg shadow-sage-600/20 hover:shadow-sage-600/30 transition-all transform hover:-translate-y-0.5">
+          Commander un bouquet
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-sage-900 hover:text-rose-600 focus:outline-none" aria-label="Menu Mobile">
+        <svg id="menu-icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="menu-icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-b border-cream-300 px-6 py-6 transition-all duration-300">
+      <nav class="flex flex-col gap-4 text-base font-medium">
+        <a href="#creations" class="mobile-link py-2 border-b border-cream-200">Nos Créations</a>
+        <a href="#engagements" class="mobile-link py-2 border-b border-cream-200">Nos Engagements</a>
+        <a href="#evenements" class="mobile-link py-2 border-b border-cream-200">Événements</a>
+        <a href="#infos" class="mobile-link py-2 border-b border-cream-200">Horaires & Contact</a>
+        <div class="pt-2 flex flex-col gap-3">
+          <a href="#creations" class="mobile-link text-center bg-sage-600 text-white py-3 rounded-xl font-semibold shadow-md">
+            Commander un bouquet
+          </a>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero" id="accueil">
-      <div class="hero-content">
-        <p class="eyebrow">ARTISAN FLEURISTE · DEPUIS 2018</p>
-        <h1>Des fleurs pour<br>les <em>beaux moments.</em></h1>
-        <p class="intro">
-          Des bouquets imaginés avec passion, des fleurs
-          de saison et de petites attentions qui font la différence.
-        </p>
-        <a class="primary-button" href="#bouquets">
-          Découvrir nos bouquets <span>↗</span>
-        </a>
-        <p class="small-note">Fleurs de saison · Bouquets faits main</p>
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-[calc(100vh-5rem)] flex items-center relative overflow-hidden py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
+        
+        <!-- Hero Text -->
+        <div class="lg:col-span-7 space-y-6 reveal">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-200/50 text-rose-700 border border-rose-200 text-xs font-semibold uppercase tracking-wider">
+            🌸 Poésie & Élégance Florale
+          </div>
+          
+          <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-[1.08] text-sage-900">
+            Dites-le avec des <br>
+            <span class="italic text-rose-600 font-serif">fleurs d'exception.</span>
+          </h1>
+          
+          <p class="text-sage-800 text-lg sm:text-xl font-light leading-relaxed max-w-xl">
+            Composition sur-mesure, bouquets champêtres et plantes sélectionnées avec soin pour sublimer vos moments précieux.
+          </p>
+          
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <a href="#creations" class="bg-sage-600 hover:bg-sage-700 text-white px-7 py-4 rounded-xl text-base font-semibold shadow-xl shadow-sage-600/25 hover:shadow-sage-600/40 transition-all transform hover:-translate-y-1 flex items-center gap-3">
+              Découvrir nos créations
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="#evenements" class="bg-white/80 hover:bg-white text-sage-900 border border-cream-300 px-7 py-4 rounded-xl text-base font-semibold transition-all shadow-sm hover:shadow-md">
+              Mariages & Sur-mesure
+            </a>
+          </div>
+
+          <!-- Badges / Highlights -->
+          <div class="pt-8 border-t border-sage-800/10 grid grid-cols-3 gap-4">
+            <div>
+              <div class="font-serif text-2xl sm:text-3xl font-bold text-sage-900">100%</div>
+              <div class="text-xs text-sage-800/80">Fleurs de Saison</div>
+            </div>
+            <div>
+              <div class="font-serif text-2xl sm:text-3xl font-bold text-sage-900">Local</div>
+              <div class="text-xs text-sage-800/80">Producteurs Français</div>
+            </div>
+            <div>
+              <div class="font-serif text-2xl sm:text-3xl font-bold text-sage-900">Express</div>
+              <div class="text-xs text-sage-800/80">Livraison le Jour Même</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual / Graphic Card -->
+        <div class="lg:col-span-5 relative flex justify-center reveal">
+          <div class="relative w-full max-w-md aspect-[4/5] rounded-3xl bg-gradient-to-br from-rose-200 via-sage-600 to-sage-900 p-1 shadow-2xl glow-card transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div class="w-full h-full bg-cream-100 rounded-[22px] p-6 flex flex-col justify-between items-center text-center relative overflow-hidden">
+              
+              <div class="w-full flex justify-between items-center z-10">
+                <span class="text-xs font-semibold uppercase tracking-widest text-rose-600 bg-rose-100/80 px-3 py-1 rounded-full">Coup de Cœur</span>
+                <span class="text-xs text-sage-800/60 font-medium">Composition du Jour</span>
+              </div>
+
+              <!-- Main Hero Image -->
+              <div class="my-auto w-full h-64 my-3 rounded-2xl overflow-hidden shadow-md group">
+                <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80" alt="Bouquet de fleurs de saison" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </div>
+
+              <div class="z-10 bg-white/90 backdrop-blur-sm p-4 rounded-2xl border border-cream-200 w-full shadow-lg">
+                <p class="font-serif font-bold text-lg text-sage-900">Le Bouquet Champêtre</p>
+                <p class="text-xs text-sage-800/80 mt-1">Pivoines, eucalyptus, roses de jardin & fleurs séchées</p>
+                <div class="mt-2 flex justify-between items-center pt-2 border-t border-cream-200">
+                  <span class="text-rose-600 font-bold text-sm">À partir de 38 €</span>
+                  <span class="text-[10px] bg-sage-100 text-sage-900 px-2 py-0.5 rounded font-medium">Arrivage Frais</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Specialties Section -->
+    <section id="creations" class="py-20 max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto space-y-4 reveal">
+        <span class="text-xs font-bold uppercase tracking-widest text-rose-600">Nos Collections</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-normal text-sage-900">Créations Florales de Saison</h2>
+        <p class="text-sage-800 text-base">Chaque bouquet est assemblé à la main selon les arrivages du matin.</p>
+        
+        <!-- Category Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 pt-6">
+          <button data-filter="all" class="filter-btn active px-5 py-2 rounded-full text-sm font-semibold bg-sage-600 text-white shadow-md transition-all">Tous</button>
+          <button data-filter="bouquets" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-cream-200 text-sage-900 hover:bg-cream-300 transition-all">Bouquets Frais</button>
+          <button data-filter="plantes" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-cream-200 text-sage-900 hover:bg-cream-300 transition-all">Plantes & Poteries</button>
+          <button data-filter="sechees" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-cream-200 text-sage-900 hover:bg-cream-300 transition-all">Fleurs Séchées</button>
+        </div>
       </div>
 
-      <div class="hero-image">
-        <img
-          src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=85"
-          alt="Bouquet de fleurs fraîches aux tons doux">
-        <div class="image-label">
-          <span>✳</span>
-          Des fleurs, tout simplement.
+      <!-- Items Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        
+        <!-- Item 1 -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="bouquets">
+          <div>
+            <div class="h-56 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=600&q=80" alt="Bouquet Romantique" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rose-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Incontournable</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-semibold text-sage-900">Bouquet Rose Pastel</h3>
+              <p class="text-sage-800/80 text-sm mt-2 leading-relaxed">Roses anciennes, renoncules et feuillage d'eucalyptus délicatement harmonisés.</p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
+            <span class="font-serif font-bold text-xl text-sage-900">42.00 €</span>
+            <span class="text-xs text-sage-800/60 font-medium">Taille M</span>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="bouquets">
+          <div>
+            <div class="h-56 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=600&q=80" alt="Bouquet Soleil" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rose-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Plein Soleil</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-semibold text-sage-900">Composition Éclat d'Été</h3>
+              <p class="text-sage-800/80 text-sm mt-2 leading-relaxed">Tournesols, mimosas et fleurs sauvages aux couleurs chaleureuses et lumineuses.</p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
+            <span class="font-serif font-bold text-xl text-rose-600">35.00 €</span>
+            <span class="text-xs text-sage-800/60 font-medium">Taille M</span>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="sechees">
+          <div>
+            <div class="h-56 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1591886960571-74d43a9d4166?auto=format&fit=crop&w=600&q=80" alt="Cloche fleurs séchées" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rose-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Longue Durée</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-semibold text-sage-900">Cloche de Fleurs Séchées</h3>
+              <p class="text-sage-800/80 text-sm mt-2 leading-relaxed">Création sous cloche en verre. Immortelles, pampa et statice. Ne nécessite aucun entretien.</p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
+            <span class="font-serif font-bold text-xl text-sage-900">48.00 €</span>
+            <span class="text-xs text-sage-800/60 font-medium">Hauteur 25cm</span>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="plantes">
+          <div>
+            <div class="h-56 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80" alt="Plante en pot" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rose-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Pot en Terre Cuite</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-semibold text-sage-900">Monstera Deliciosa</h3>
+              <p class="text-sage-800/80 text-sm mt-2 leading-relaxed">Magnifique plante verte d'intérieur, fournie avec son pot artisanal en céramique sérigraphiée.</p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
+            <span class="font-serif font-bold text-xl text-sage-900">29.00 €</span>
+            <span class="text-xs text-sage-800/60 font-medium">Pot Ø 18cm</span>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="bouquets">
+          <div>
+            <div class="h-56 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=600&q=80" alt="Orchidées" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rose-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Élégance</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-semibold text-sage-900">Orchidée Phalaenopsis</h3>
+              <p class="text-sage-800/80 text-sm mt-2 leading-relaxed">Orchidée à deux tiges avec une floraison généreuse et durable. Présentée dans un cache-pot épuré.</p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
+            <span class="font-serif font-bold text-xl text-sage-900">39.00 €</span>
+            <span class="text-xs text-sage-800/60 font-medium">2 tiges</span>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="sechees">
+          <div>
+            <div class="h-56 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80" alt="Couronne de fleurs" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rose-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Artisanat</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-semibold text-sage-900">Couronne Murale Boisée</h3>
+              <p class="text-sage-800/80 text-sm mt-2 leading-relaxed">Tressée à la main sur un cercle en rotin. Eucalyptus séché, coton et petites fleurs délicates.</p>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
+            <span class="font-serif font-bold text-xl text-sage-900">55.00 €</span>
+            <span class="text-xs text-sage-800/60 font-medium">Ø 35cm</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Engagements Section -->
+    <section id="engagements" class="bg-sage-900 text-cream-100 py-24 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          
+          <div class="space-y-6 reveal">
+            <span class="text-xs font-bold uppercase tracking-widest text-rose-200">Notre Démarche</span>
+            <h2 class="font-serif text-4xl sm:text-5xl font-normal leading-tight">
+              Aimer la nature, <br>
+              <span class="text-rose-200 italic font-serif">c'est la respecter.</span>
+            </h2>
+            <p class="text-cream-200/80 leading-relaxed text-base sm:text-lg font-light">
+              Nous privilégions les fleurs locales cultivées sans pesticides et de saison, pour vous offrir des compositions fraîches qui préservent l'environnement.
+            </p>
+
+            <div class="space-y-4 pt-4">
+              <div class="flex items-start gap-4 p-4 rounded-xl bg-sage-800/60 border border-sage-700">
+                <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=150&q=80" alt="Champ de fleurs" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="font-bold font-serif text-rose-200 text-lg">Fleurs 100% Françaises</h4>
+                  <p class="text-xs text-cream-200/70 mt-1">Directement sourcées auprès d'horticulteurs éco-responsables de notre région.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-xl bg-sage-800/60 border border-sage-700">
+                <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=150&q=80" alt="Emballage kraft" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="font-bold font-serif text-rose-200 text-lg">Emballages Éco-conçus</h4>
+                  <p class="text-xs text-cream-200/70 mt-1">Papier kraft recyclé, rubans en lin naturel et zéro plastique à usage unique.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 rounded-xl bg-sage-800/60 border border-sage-700">
+                <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=150&q=80" alt="Livraison vélo" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="font-bold font-serif text-rose-200 text-lg">Livraison Douce</h4>
+                  <p class="text-xs text-cream-200/70 mt-1">Livraisons locales effectuées en cargo-vélo pour minimiser notre empreinte carbone.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Card Graphic -->
+          <div class="reveal flex justify-center">
+            <div class="relative w-full max-w-md bg-sage-800 p-8 rounded-3xl border border-rose-200/20 shadow-2xl text-center space-y-6">
+              <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-rose-200 shadow-md">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Fleuriste" class="w-full h-full object-cover">
+              </div>
+              <blockquote class="font-serif italic text-xl text-cream-100">
+                « Les fleurs accompagnent les plus beaux chapitres de la vie. Notre rôle est de leur donner une voix poétique. »
+              </blockquote>
+              <div class="pt-4 border-t border-sage-700">
+                <p class="font-bold text-rose-200">Clara & Son Équipe</p>
+                <p class="text-xs text-cream-300/60">Artisans Fleuristes Passionnées</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section class="bouquets" id="bouquets">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">NOTRE SÉLECTION</p>
-          <h2>Des bouquets qui <em>racontent.</em></h2>
+    <!-- Événements & Sur-mesure -->
+    <section id="evenements" class="py-24 max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5 reveal">
+          <div class="relative rounded-3xl overflow-hidden border border-cream-300 shadow-lg group">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Décoration florale de mariage" class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-sm">
+              <p class="font-serif font-bold text-lg text-sage-900">Décoration Sur-Mesure</p>
+              <p class="text-xs text-sage-800/70 mt-1">Mariages, réceptions & événements d'entreprise.</p>
+            </div>
+          </div>
         </div>
-        <p>Pour offrir, célébrer ou simplement faire plaisir.</p>
-      </div>
 
-      <div class="cards">
-        <article class="flower-card">
-          <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=800&q=85" alt="Bouquet de fleurs roses">
-          <h3>Douceur rosée</h3>
-          <p>Délicat et plein de tendresse</p>
-        </article>
-
-        <article class="flower-card">
-          <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=800&q=85" alt="Composition florale élégante">
-          <h3>Jardin sauvage</h3>
-          <p>Naturel et plein de caractère</p>
-        </article>
-
-        <article class="flower-card">
-          <img src="https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=800&q=85" alt="Bouquet de fleurs de saison">
-          <h3>Instant fleuri</h3>
-          <p>Une attention pour chaque jour</p>
-        </article>
+        <div class="lg:col-span-7 space-y-6 reveal">
+          <span class="text-xs font-bold uppercase tracking-widest text-rose-600">Sur-Mesure</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-sage-900">
+            Sublimez vos événements marquants
+          </h2>
+          <p class="text-sage-800 leading-relaxed">
+            De l'arche de mariage romantique aux centres de table épurés, nous imaginons une scénographie florale unique qui reflète votre personnalité et le thème de votre journée spéciale.
+          </p>
+          <p class="text-sage-800 leading-relaxed">
+            Nous proposons également des abonnements floraux pour les professionnels (hôtels, restaurants, boutiques) afin d'égayer vos espaces d'accueil tout au long de l'année.
+          </p>
+          <div class="pt-2">
+            <a href="#infos" class="inline-flex items-center gap-2 text-rose-600 font-semibold hover:underline">
+              Prendre rendez-vous pour un devis gratuit →
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="story" id="histoire">
-      <p class="eyebrow">L'AMOUR DES FLEURS</p>
-      <h2>Chaque fleur a son histoire.</h2>
-      <p>
-        Nous imaginons des compositions florales uniques,
-        inspirées par les saisons et les petits bonheurs du quotidien.
-      </p>
-    </section>
+    <!-- Infos & Dynamic Schedule Section -->
+    <section id="infos" class="bg-cream-200/60 py-20 border-t border-cream-300">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto space-y-3 mb-12 reveal">
+          <span class="text-xs font-bold uppercase tracking-widest text-rose-600">Rendez-nous Visite</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-sage-900">Horaires & Ateliers</h2>
+          <p class="text-sage-800 text-sm">Passez sentir le parfum des fleurs fraîchement coupées.</p>
+        </div>
 
-    <section class="contact" id="contact">
-      <p class="eyebrow">UNE ENVIE, UNE OCCASION ?</p>
-      <h2>Imaginons votre prochain bouquet.</h2>
-      <a class="primary-button" href="mailto:bonjour@maisonfleurie.fr">
-        Nous écrire ↗
-      </a>
-      <p class="small-note">Adresse e-mail fictive à remplacer avant publication.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Address Card -->
+          <div class="bg-white p-8 rounded-2xl border border-cream-300/80 shadow-sm reveal flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-xl font-bold">📍</div>
+              <h3 class="font-serif text-xl font-bold text-sage-900">L'Atelier en Ville</h3>
+              <p class="text-sm text-sage-800/80 leading-relaxed">
+                24 Rue des Rosiers<br>
+                75004 Paris, France
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-cream-200">
+              <a href="https://maps.google.com" target="_blank" rel="noopener" class="text-xs font-bold text-rose-600 hover:text-rose-700 flex items-center gap-1">
+                Itinéraire Google Maps ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Hours Card with Dynamic Highlight -->
+          <div class="bg-white p-8 rounded-2xl border border-cream-300/80 shadow-sm reveal flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-sage-100 text-sage-800 rounded-xl flex items-center justify-center text-xl font-bold">⏰</div>
+              <h3 class="font-serif text-xl font-bold text-sage-900">Horaires d'Ouverture</h3>
+              
+              <ul class="text-xs space-y-2 text-sage-800/80" id="schedule-list">
+                <li data-day="1" class="flex justify-between p-1.5 rounded"><span>Lundi</span> <span class="font-semibold">09:00 – 19:30</span></li>
+                <li data-day="2" class="flex justify-between p-1.5 rounded"><span>Mardi</span> <span class="font-semibold">09:00 – 19:30</span></li>
+                <li data-day="3" class="flex justify-between p-1.5 rounded"><span>Mercredi</span> <span class="font-semibold">09:00 – 19:30</span></li>
+                <li data-day="4" class="flex justify-between p-1.5 rounded"><span>Jeudi</span> <span class="font-semibold">09:00 – 19:30</span></li>
+                <li data-day="5" class="flex justify-between p-1.5 rounded"><span>Vendredi</span> <span class="font-semibold">09:00 – 19:30</span></li>
+                <li data-day="6" class="flex justify-between p-1.5 rounded"><span>Samedi</span> <span class="font-semibold">09:00 – 20:00</span></li>
+                <li data-day="0" class="flex justify-between p-1.5 rounded"><span>Dimanche</span> <span class="font-semibold">09:30 – 13:00</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Contact Card -->
+          <div class="bg-white p-8 rounded-2xl border border-cream-300/80 shadow-sm reveal flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-xl font-bold">📞</div>
+              <h3 class="font-serif text-xl font-bold text-sage-900">Commandes & Devis</h3>
+              <p class="text-sm text-sage-800/80 leading-relaxed">
+                Besoin d'une livraison express ou d'un conseil personnalisé ? Contactez-nous directement.
+              </p>
+              <div class="pt-2">
+                <a href="tel:0142789012" class="font-serif text-2xl font-bold text-rose-600 hover:underline">
+                  01 42 78 90 12
+                </a>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-cream-200">
+              <span class="text-xs text-sage-800/60">Livraison le jour même pour toute commande avant 13h</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <a class="logo" href="#">Maison Fleurie<span>.</span></a>
-    <p>Concept de site fictif · Créé avec soin 🌷</p>
+  <!-- Footer -->
+  <footer class="bg-sage-900 text-cream-100 border-t border-sage-800 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-sage-800">
+        
+        <div class="space-y-4">
+          <span class="font-serif text-2xl font-semibold tracking-tight text-cream-100">
+            L'Atelier <span class="text-rose-200 font-normal italic">Floral</span>
+          </span>
+          <p class="text-xs text-cream-300/70 leading-relaxed">
+            Artisan fleuriste passionné, engagé pour la beauté naturelle et l'horticulture locale responsable.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-serif text-sm font-bold text-rose-200 uppercase tracking-wider mb-4">Navigation</h4>
+          <ul class="text-xs space-y-2 text-cream-200/80">
+            <li><a href="#creations" class="hover:text-rose-200 transition-colors">Nos Créations</a></li>
+            <li><a href="#engagements" class="hover:text-rose-200 transition-colors">Nos Engagements</a></li>
+            <li><a href="#evenements" class="hover:text-rose-200 transition-colors">Mariages & Sur-mesure</a></li>
+            <li><a href="#infos" class="hover:text-rose-200 transition-colors">Horaires & Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-serif text-sm font-bold text-rose-200 uppercase tracking-wider mb-4">Services</h4>
+          <ul class="text-xs space-y-2 text-cream-200/80">
+            <li>💐 Bouquets de Saison</li>
+            <li>🚚 Livraison à Domicile</li>
+            <li>💒 Scénographie Mariage</li>
+            <li>🌿 Abonnements Entreprises</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-serif text-sm font-bold text-rose-200 uppercase tracking-wider mb-4">Démonstration</h4>
+          <p class="text-xs text-cream-300/70 mb-3">
+            Site web de démonstration créé pour le portfolio Weboria.
+          </p>
+          <span class="inline-block bg-rose-200/20 text-rose-200 border border-rose-200/30 text-[10px] px-2.5 py-1 rounded font-mono">
+            Concept Weboria © 2026
+          </span>
+        </div>
+
+      </div>
+
+      <div class="pt-8 text-center md:flex md:justify-between items-center text-xs text-cream-300/50">
+        <p>© 2026 L'Atelier Floral — Tous droits réservés.</p>
+        <p class="mt-2 md:mt-0">Conçu avec passion pour l'artisanat floral</p>
+      </div>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- JavaScript Interactivity -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Mobile Menu Toggle
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+      }
+
+      menuBtn.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', () => {
+        if (!mobileMenu.classList.contains('hidden')) toggleMenu();
+      }));
+
+      // 2. Category Filter Interactivity
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const itemCards = document.querySelectorAll('.item-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active button state
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-sage-600', 'text-white', 'shadow-md');
+            b.classList.add('bg-cream-200', 'text-sage-900');
+          });
+          btn.classList.remove('bg-cream-200', 'text-sage-900');
+          btn.classList.add('bg-sage-600', 'text-white', 'shadow-md');
+
+          const filter = btn.getAttribute('data-filter');
+
+          itemCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // 3. Highlight Current Day in Schedule
+      const today = new Date().getDay();
+      const currentDayItem = document.querySelector(`#schedule-list li[data-day="${today}"]`);
+      if (currentDayItem) {
+        currentDayItem.classList.add('bg-rose-100/60', 'font-bold', 'text-sage-900');
+      }
+
+      // 4. Scroll Reveal Animation
+      const reveals = document.querySelectorAll('.reveal');
+      const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        reveals.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 80) {
+            el.classList.add('active');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll(); // Trigger initial check
+    });
+  </script>
 </body>
 </html>
