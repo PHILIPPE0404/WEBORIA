@@ -159,7 +159,6 @@
         <!-- Hero Text -->
         <div class="lg:col-span-7 space-y-6 reveal">
           <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/20 text-rust-700 border border-gold-500/30 text-xs font-semibold uppercase tracking-wider">
-            <svg class="w-4 h-4 text-rust-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m9-9H3"/></svg>
             Artisans Boulangers Authentiques
           </div>
           
@@ -199,7 +198,7 @@
           </div>
         </div>
 
-        <!-- Hero Visual / Graphic Card avec Image Réelle -->
+        <!-- Hero Visual / Graphic Card -->
         <div class="lg:col-span-5 relative flex justify-center reveal">
           <div class="relative w-full max-w-md aspect-square rounded-3xl bg-gradient-to-br from-gold-400 via-rust-600 to-brown-900 p-1 shadow-2xl bread-glow transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
             <div class="w-full h-full bg-cream-100 rounded-[22px] p-6 flex flex-col justify-between items-center text-center relative overflow-hidden">
@@ -229,7 +228,7 @@
       </div>
     </section>
 
-    <!-- Interactive Specialties Section avec Images Réelles -->
+    <!-- Interactive Specialties Section -->
     <section id="specialites" class="py-20 max-w-7xl mx-auto px-6">
       <div class="text-center max-w-2xl mx-auto space-y-4 reveal">
         <span class="text-xs font-bold uppercase tracking-widest text-rust-600">Plaisirs Quotidiens</span>
@@ -407,7 +406,7 @@
             </div>
           </div>
 
-          <!-- Feature Card Graphic avec Image du Boulanger -->
+          <!-- Feature Card Graphic -->
           <div class="reveal flex justify-center">
             <div class="relative w-full max-w-md bg-brown-800 p-8 rounded-3xl border border-gold-500/20 shadow-2xl text-center space-y-6">
               <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-gold-400 shadow-md">
@@ -427,7 +426,7 @@
       </div>
     </section>
 
-    <!-- Histoire Section avec Image de Devanture/Boulangerie -->
+    <!-- Histoire Section -->
     <section id="histoire" class="py-24 max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-5 reveal">
@@ -606,7 +605,6 @@
 
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          // Update active button state
           filterBtns.forEach(b => {
             b.classList.remove('bg-rust-600', 'text-white', 'shadow-md');
             b.classList.add('bg-cream-200', 'text-brown-900');
@@ -646,7 +644,7 @@
       };
 
       window.addEventListener('scroll', revealOnScroll);
-      revealOnScroll(); // Trigger initial check
+      revealOnScroll();
     });
   </script>
 </body>
