@@ -14,22 +14,20 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   
   <style>
-    /* --- VARIABLES & RESET --- */
+    /* --- VARIABLES & RESET (THEME CLAIR) --- */
     :root {
-      --bg-dark: #12100E;
-      --bg-card: #1A1715;
-      --bg-card-hover: #24201D;
-      --gold-primary: #D4AF37;
-      --gold-light: #F3E5AB;
-      --gold-dark: #AA820A;
-      --terracotta: #C86D51;
-      --olive: #5B6B46;
-      --text-light: #F4F1EA;
-      --text-muted: #A39D93;
-      --border-color: rgba(212, 175, 55, 0.2);
+      --bg-light: #FAF8F5;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #F4EFE6;
+      --gold-primary: #B8860B;
+      --gold-light: #DAA520;
+      --gold-dark: #8B6508;
+      --text-dark: #222222;
+      --text-muted: #666666;
+      --border-color: rgba(184, 134, 11, 0.25);
       --font-serif: 'Cormorant Garamond', serif;
       --font-sans: 'Montserrat', sans-serif;
-      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: all 0.3s ease;
     }
 
     * {
@@ -43,8 +41,8 @@
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
+      background-color: var(--bg-light);
+      color: var(--text-dark);
       font-family: var(--font-sans);
       line-height: 1.6;
       overflow-x: hidden;
@@ -89,8 +87,8 @@
 
     .section-title h2 {
       font-size: 2.8rem;
-      font-weight: 400;
-      color: var(--text-light);
+      font-weight: 600;
+      color: var(--text-dark);
     }
 
     .btn {
@@ -99,7 +97,7 @@
       gap: 0.75rem;
       padding: 0.9rem 2rem;
       border-radius: 4px;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 0.9rem;
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -110,15 +108,15 @@
 
     .btn-gold {
       background-color: var(--gold-primary);
-      color: var(--bg-dark);
+      color: #FFFFFF;
       border-color: var(--gold-primary);
     }
 
     .btn-gold:hover {
-      background-color: var(--gold-light);
-      border-color: var(--gold-light);
+      background-color: var(--gold-dark);
+      border-color: var(--gold-dark);
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+      box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
     }
 
     .btn-outline {
@@ -128,8 +126,8 @@
     }
 
     .btn-outline:hover {
-      background: rgba(212, 175, 55, 0.1);
-      color: var(--gold-light);
+      background: var(--gold-primary);
+      color: #FFFFFF;
       transform: translateY(-2px);
     }
 
@@ -140,17 +138,11 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      padding: 1.5rem 0;
+      padding: 1.2rem 0;
       transition: var(--transition);
-      background: linear-gradient(to bottom, rgba(18, 16, 14, 0.9), transparent);
-    }
-
-    .navbar.scrolled {
-      background: rgba(18, 16, 14, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 1rem 0;
+      background: rgba(255, 255, 255, 0.95);
       border-bottom: 1px solid var(--border-color);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
     .nav-container {
@@ -164,7 +156,7 @@
       font-size: 1.8rem;
       font-weight: 700;
       letter-spacing: 1px;
-      color: var(--text-light);
+      color: var(--text-dark);
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -186,7 +178,7 @@
       text-transform: uppercase;
       color: var(--text-muted);
       transition: var(--transition);
-      position: relative;
+      font-weight: 500;
     }
 
     .nav-links a:hover,
@@ -194,43 +186,13 @@
       color: var(--gold-primary);
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background-color: var(--gold-primary);
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
     .cart-trigger {
       position: relative;
       background: transparent;
       border: none;
-      color: var(--text-light);
+      color: var(--text-dark);
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       padding: 0.5rem;
-      transition: var(--transition);
-    }
-
-    .cart-trigger:hover {
-      color: var(--gold-primary);
     }
 
     .cart-badge {
@@ -238,7 +200,7 @@
       top: 0;
       right: 0;
       background-color: var(--gold-primary);
-      color: var(--bg-dark);
+      color: #FFFFFF;
       font-size: 0.7rem;
       font-weight: 700;
       width: 18px;
@@ -252,43 +214,37 @@
     /* --- HERO SECTION --- */
     .hero {
       position: relative;
-      height: 100vh;
-      min-height: 700px;
+      height: 85vh;
+      min-height: 600px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(rgba(18, 16, 14, 0.6), rgba(18, 16, 14, 0.8)), 
+      background: linear-gradient(rgba(250, 248, 245, 0.8), rgba(250, 248, 245, 0.85)), 
                   url('https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
       text-align: center;
       padding-top: 80px;
     }
 
-    .hero-content {
-      max-width: 850px;
-      padding: 0 1.5rem;
-      animation: fadeIn 1.2s ease-out;
-    }
-
     .hero-subtitle {
       color: var(--gold-primary);
       font-size: 1rem;
-      letter-spacing: 5px;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       font-weight: 600;
     }
 
     .hero h1 {
-      font-size: 4rem;
-      font-weight: 400;
+      font-size: 3.8rem;
+      font-weight: 500;
       line-height: 1.15;
       margin-bottom: 1.5rem;
-      color: var(--text-light);
+      color: var(--text-dark);
     }
 
     .hero h1 em {
       font-style: italic;
-      color: var(--gold-light);
+      color: var(--gold-primary);
     }
 
     .hero-description {
@@ -304,12 +260,11 @@
       display: flex;
       gap: 1.5rem;
       justify-content: center;
-      flex-wrap: wrap;
     }
 
-    /* --- FEATURES BADGES --- */
+    /* --- FEATURES BAR --- */
     .features-bar {
-      background: var(--bg-card);
+      background: #FFFFFF;
       padding: 2.5rem 0;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
@@ -324,3 +279,395 @@
 
     .feature-item {
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feature-item i {
+      color: var(--gold-primary);
+    }
+
+    .feature-item h4 {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+    }
+
+    .feature-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* --- PRODUCTS SECTION --- */
+    .products-section {
+      padding: 6rem 0;
+    }
+
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      color: var(--text-dark);
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background-color: var(--gold-primary);
+      color: #FFFFFF;
+      border-color: var(--gold-primary);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .product-card {
+      background-color: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .product-img-wrapper {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: #FFFFFF;
+      color: var(--gold-primary);
+      border: 1px solid var(--gold-primary);
+      padding: 0.2rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-radius: 4px;
+    }
+
+    .product-details {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-origin {
+      font-size: 0.75rem;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .product-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid #F0F0F0;
+    }
+
+    .product-price {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+    }
+
+    .btn-add-cart {
+      background: var(--bg-light);
+      color: var(--text-dark);
+      border: 1px solid var(--border-color);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-add-cart:hover {
+      background: var(--gold-primary);
+      color: #FFFFFF;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: #1A1715;
+      color: #A39D93;
+      padding: 4rem 0 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer h3, footer h4 {
+      color: #FFFFFF;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.8rem;
+    }
+
+    /* --- CART SIDEBAR --- */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 380px;
+      height: 100vh;
+      background-color: #FFFFFF;
+      z-index: 1001;
+      box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid #F0F0F0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid #F0F0F0;
+      background: var(--bg-light);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.4);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="overlay"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <i data-lucide="crown" style="color: var(--gold-primary);"></i>
+        L'Épicerie <span>Gourmet</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#accueil" class="active">Accueil</a></li>
+        <li><a href="#produits">Nos Produits</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="cart-trigger" id="cartTrigger">
+        <i data-lucide="shopping-bag" size="24"></i>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="accueil">
+    <div class="container">
+      <div class="hero-subtitle">Maison d'Exception & Gastronomie</div>
+      <h1>L'Art des Saveurs <em>Rares & Authentiques</em></h1>
+      <p class="hero-description">
+        Une sélection rigoureuse des plus grands terroirs du monde. Truffes fraîches, caviars d'exception et huiles d'olive millésimées pour les palais exigeants.
+      </p>
+      <div class="hero-buttons">
+        <a href="#produits" class="btn btn-gold">
+          Découvrir les Produits <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES BAR -->
+  <div class="features-bar">
+    <div class="container features-grid">
+      <div class="feature-item">
+        <i data-lucide="award" size="28"></i>
+        <h4>Produits Certifiés</h4>
+        <p>AOP, AOC & Producteurs engagés</p>
+      </div>
+      <div class="feature-item">
+        <i data-lucide="truck" size="28"></i>
+        <h4>Livraison Réfrigérée</h4>
+        <p>Fraîcheur garantie sous 24/48h</p>
+      </div>
+      <div class="feature-item">
+        <i data-lucide="gift" size="28"></i>
+        <h4>Écrins Cadeaux</h4>
+        <p>Emballages soignés faits main</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS SECTION -->
+  <section class="products-section" id="produits">
+    <div class="container">
+      <div class="section-title">
+        <span>Sélection Gastronomique</span>
+        <h2>Nos Produits D'Exception</h2>
+      </div>
+
+      <div class="category-tabs">
+        <button class="tab-btn active" data-category="all">Tout Afficher</button>
+        <button class="tab-btn" data-category="truffes">Truffes & Caviars</button>
+        <button class="tab-btn" data-category="huiles">Huiles & Vinaigres</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>L'Épicerie Gourmet</h3>
+          <p style="margin-top:0.8rem;">Fournisseur de plaisirs gustatifs et d'exception.</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p style="margin-top:0.8rem;">28 Place de la Madeleine, 75008 Paris<br>01 42 68 55 00</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 L'Épicerie Gourmet. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Mon Panier</h3>
+      <button id="closeCart" style="background:none; border:none; cursor:pointer;"><i data-lucide="x"></i></button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <p style="text-align: center; color: var(--text-muted); margin-top: 2rem;">Votre panier est vide.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total :</span>
+        <span id="cartTotalAmount">0,00 €</span>
+      </div>
+      <button class="btn btn-gold" style="width: 100%; justify-content: center;" onclick="alert('Commande validée !')">Commander</button>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const products = [
+      { id: 1, title: "Truffe Noire du Périgord", category: "truffes", origin: "France", price: 85.00, desc: "Truffe entière fraîche brossée d'exception.", image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&q=80&w=800", tag: "Incontournable" },
+      { id: 2, title: "Caviar Beluga Imperial", category: "truffes", origin: "Mer Caspienne", price: 240.00, desc: "Grains fermes et notes délicates d'amande.", image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&q=80&w=800", tag: "Rareté" },
+      { id: 3, title: "Huile d'Olive Extra Millésimée", category: "huiles", origin: "Provence", price: 34.50, desc: "Extraction à froid. Arômes d'artichaut et poivre.", image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&q=80&w=800", tag: "AOP" }
+    ];
+
+    let cart = [];
+
+    function renderProducts(cat = 'all') {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = '';
+      const list = cat === 'all' ? products : products.filter(p => p.category === cat);
+      
+      list.forEach(p => {
+        grid.innerHTML += `
+          <div class="product-card">
+            <div class="product-img-wrapper">
+              <span class="product-tag">${p.tag}</span>
+              <img src="${p.image}" class="product-img">
+            </div>
+            <div class="product-details">
+              <span class="product-origin">${p.origin}</span>
+              <h3 class="product-title">${
