@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le Fournil du Village — Boulangerie Artisanal | Weboria</title>
+  <title>Le Fournil du Village — Boulangerie Artisanale | Weboria</title>
   
   <!-- Tailwind CSS & Google Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -159,7 +159,8 @@
         <!-- Hero Text -->
         <div class="lg:col-span-7 space-y-6 reveal">
           <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/20 text-rust-700 border border-gold-500/30 text-xs font-semibold uppercase tracking-wider">
-            <span class="text-base">🌾</span> Artisans Boulangers Authentiques
+            <svg class="w-4 h-4 text-rust-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m9-9H3"/></svg>
+            Artisans Boulangers Authentiques
           </div>
           
           <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-brown-950">
@@ -198,21 +199,19 @@
           </div>
         </div>
 
-        <!-- Hero Visual / Graphic Card -->
+        <!-- Hero Visual / Graphic Card avec Image Réelle -->
         <div class="lg:col-span-5 relative flex justify-center reveal">
           <div class="relative w-full max-w-md aspect-square rounded-3xl bg-gradient-to-br from-gold-400 via-rust-600 to-brown-900 p-1 shadow-2xl bread-glow transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
-            <div class="w-full h-full bg-cream-100 rounded-[22px] p-8 flex flex-col justify-between items-center text-center relative overflow-hidden">
-              <!-- Background Decorative Pattern -->
-              <div class="absolute -right-12 -bottom-12 opacity-10 text-[200px] select-none font-serif">🥖</div>
+            <div class="w-full h-full bg-cream-100 rounded-[22px] p-6 flex flex-col justify-between items-center text-center relative overflow-hidden">
               
               <div class="w-full flex justify-between items-center z-10">
                 <span class="text-xs font-semibold uppercase tracking-widest text-rust-600 bg-rust-500/10 px-3 py-1 rounded-full">Fait Maison</span>
                 <span class="text-xs text-brown-800/60 font-medium">Édition Artisanale</span>
               </div>
 
-              <!-- Main Floating Emoji / Visual Icon -->
-              <div class="my-auto py-6 transform hover:scale-110 transition-transform duration-300 cursor-pointer">
-                <div class="text-9xl sm:text-[130px] filter drop-shadow-xl select-none">🥖</div>
+              <!-- Image du Pain Principal -->
+              <div class="my-auto w-full h-52 my-3 rounded-2xl overflow-hidden shadow-md group">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Baguette de tradition artisanale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               </div>
 
               <div class="z-10 bg-white/90 backdrop-blur-sm p-4 rounded-2xl border border-cream-200 w-full shadow-lg">
@@ -230,7 +229,7 @@
       </div>
     </section>
 
-    <!-- Interactive Specialties Section -->
+    <!-- Interactive Specialties Section avec Images Réelles -->
     <section id="specialites" class="py-20 max-w-7xl mx-auto px-6">
       <div class="text-center max-w-2xl mx-auto space-y-4 reveal">
         <span class="text-xs font-bold uppercase tracking-widest text-rust-600">Plaisirs Quotidiens</span>
@@ -249,97 +248,109 @@
       <!-- Items Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
         
-        <!-- Item 1 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="pains">
+        <!-- Item 1 : Baguette Tradition -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="pains">
           <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🥖</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Levain Bio</span>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=600&q=80" alt="Baguette Tradition" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Levain Bio</span>
             </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Baguette Tradition</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Croûte dorée très croustillante, mie alvéolée et hydratée. Fermentation de 24h.</p>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold text-brown-900">Baguette Tradition</h3>
+              <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Croûte dorée très croustillante, mie alvéolée et hydratée. Fermentation de 24h.</p>
+            </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
             <span class="font-serif font-bold text-xl text-brown-900">1.30 €</span>
             <span class="text-xs text-brown-800/60 font-medium">250g</span>
           </div>
         </div>
 
-        <!-- Item 2 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="viennoiseries">
+        <!-- Item 2 : Croissant -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="viennoiseries">
           <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🥐</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Beurre AOP</span>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Croissant Pur Beurre" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Beurre AOP</span>
             </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Croissant Pur Beurre</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Un feuilletage aéré et croustillant, confectionné avec du beurre Charentes-Poitou AOP.</p>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold text-brown-900">Croissant Pur Beurre</h3>
+              <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Un feuilletage aéré et croustillant, confectionné avec du beurre Charentes-Poitou AOP.</p>
+            </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
             <span class="font-serif font-bold text-xl text-rust-600">1.40 €</span>
             <span class="text-xs text-brown-800/60 font-medium">Unité</span>
           </div>
         </div>
 
-        <!-- Item 3 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="pains">
+        <!-- Item 3 : Pain de Campagne -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="pains">
           <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🍞</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Meule Bio</span>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=600&q=80" alt="Pain de Campagne" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Meule Bio</span>
             </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Pain de Campagne</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Mélange de farine T80 et de seigle, goût légèrement typé, excellente conservation.</p>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold text-brown-900">Pain de Campagne</h3>
+              <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Mélange de farine T80 et de seigle, goût légèrement typé, excellente conservation.</p>
+            </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
             <span class="font-serif font-bold text-xl text-brown-900">4.20 €</span>
             <span class="text-xs text-brown-800/60 font-medium">500g</span>
           </div>
         </div>
 
-        <!-- Item 4 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="viennoiseries">
+        <!-- Item 4 : Pain au Chocolat -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="viennoiseries">
           <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🍫</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Chocolat Valrhona</span>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=600&q=80" alt="Pain au Chocolat" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Valrhona</span>
             </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Pain au Chocolat</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Deux bâtons de chocolat noir pur beurre de cacao enrobés d'un feuilletage pur beurre.</p>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold text-brown-900">Pain au Chocolat</h3>
+              <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Deux bâtons de chocolat noir pur beurre de cacao enrobés d'un feuilletage pur beurre.</p>
+            </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
             <span class="font-serif font-bold text-xl text-brown-900">1.50 €</span>
             <span class="text-xs text-brown-800/60 font-medium">Unité</span>
           </div>
         </div>
 
-        <!-- Item 5 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="patisseries">
+        <!-- Item 5 : Tarte aux Pommes -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="patisseries">
           <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🥧</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Saison</span>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=600&q=80" alt="Tarte aux Pommes" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Saison</span>
             </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Tarte aux Pommes</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Pâte sablée pur beurre, compotée maison et pommes locales finement tranchées.</p>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold text-brown-900">Tarte aux Pommes</h3>
+              <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Pâte sablée pur beurre, compotée maison et pommes locales finement tranchées.</p>
+            </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
             <span class="font-serif font-bold text-xl text-brown-900">18.00 €</span>
             <span class="text-xs text-brown-800/60 font-medium">6 parts</span>
           </div>
         </div>
 
-        <!-- Item 6 -->
-        <div class="item-card reveal bg-white rounded-2xl p-6 border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="pains">
+        <!-- Item 6 : Pain aux Graines -->
+        <div class="item-card reveal bg-white rounded-2xl overflow-hidden border border-cream-300/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between" data-category="pains">
           <div>
-            <div class="flex justify-between items-start">
-              <div class="w-16 h-16 bg-cream-100 rounded-2xl flex items-center justify-center text-4xl shadow-inner mb-4">🌾</div>
-              <span class="bg-gold-500/20 text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Grainé</span>
+            <div class="h-48 overflow-hidden relative">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Pain aux Graines" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-rust-700 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase shadow-sm">Grainé</span>
             </div>
-            <h3 class="font-serif text-2xl font-bold text-brown-900">Pain aux Graines</h3>
-            <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Graines de tournesol, lin, sésame et pavot torréfiées pour un goût de noisette intense.</p>
+            <div class="p-6">
+              <h3 class="font-serif text-2xl font-bold text-brown-900">Pain aux Graines</h3>
+              <p class="text-brown-800/80 text-sm mt-2 leading-relaxed">Graines de tournesol, lin, sésame et pavot torréfiées pour un goût de noisette intense.</p>
+            </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-cream-200 flex justify-between items-center">
+          <div class="px-6 pb-6 pt-0 border-t border-cream-200/60 flex justify-between items-center mt-2">
             <span class="font-serif font-bold text-xl text-brown-900">3.80 €</span>
             <span class="text-xs text-brown-800/60 font-medium">400g</span>
           </div>
@@ -365,7 +376,9 @@
 
             <div class="space-y-4 pt-4">
               <div class="flex items-start gap-4 p-4 rounded-xl bg-brown-800/50 border border-brown-800">
-                <span class="text-2xl">🌱</span>
+                <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=150&q=80" alt="Farine" class="w-full h-full object-cover">
+                </div>
                 <div>
                   <h4 class="font-bold font-serif text-gold-400">Farines Locales & Bio</h4>
                   <p class="text-xs text-cream-200/70 mt-1">Approvisionnement auprès de moulins situés à moins de 80km du fournil.</p>
@@ -373,7 +386,9 @@
               </div>
 
               <div class="flex items-start gap-4 p-4 rounded-xl bg-brown-800/50 border border-brown-800">
-                <span class="text-2xl">⏳</span>
+                <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=150&q=80" alt="Pétrissage" class="w-full h-full object-cover">
+                </div>
                 <div>
                   <h4 class="font-bold font-serif text-gold-400">Fermentation sur 24 Heures</h4>
                   <p class="text-xs text-cream-200/70 mt-1">Développement lent des arômes sans aucun ajout de levure chimique.</p>
@@ -381,7 +396,9 @@
               </div>
 
               <div class="flex items-start gap-4 p-4 rounded-xl bg-brown-800/50 border border-brown-800">
-                <span class="text-2xl">🔥</span>
+                <div class="w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                  <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=150&q=80" alt="Cuisson au four" class="w-full h-full object-cover">
+                </div>
                 <div>
                   <h4 class="font-bold font-serif text-gold-400">Cuisson sur Pierre</h4>
                   <p class="text-xs text-cream-200/70 mt-1">Une sole en pierre réfractaire pour une croûte croustillante et dorée.</p>
@@ -390,10 +407,12 @@
             </div>
           </div>
 
-          <!-- Feature Card Graphic -->
+          <!-- Feature Card Graphic avec Image du Boulanger -->
           <div class="reveal flex justify-center">
             <div class="relative w-full max-w-md bg-brown-800 p-8 rounded-3xl border border-gold-500/20 shadow-2xl text-center space-y-6">
-              <div class="text-7xl">🌾</div>
+              <div class="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-gold-400 shadow-md">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=400&q=80" alt="Philippe Le Boulanger" class="w-full h-full object-cover">
+              </div>
               <blockquote class="font-serif italic text-xl text-cream-100">
                 « Un bon pain se reconnaît à sa croûte qui chante à la sortie du four et à sa mie qui fleure bon le levain. »
               </blockquote>
@@ -408,13 +427,13 @@
       </div>
     </section>
 
-    <!-- Histoire Section -->
+    <!-- Histoire Section avec Image de Devanture/Boulangerie -->
     <section id="histoire" class="py-24 max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-5 reveal">
-          <div class="relative bg-cream-200 rounded-3xl p-8 border border-cream-300 text-center">
-            <span class="text-8xl">🏪</span>
-            <div class="mt-6 bg-white p-4 rounded-2xl shadow-sm">
+          <div class="relative rounded-3xl overflow-hidden border border-cream-300 shadow-lg group">
+            <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=800&q=80" alt="Devanture de la boulangerie" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-sm">
               <p class="font-serif font-bold text-lg text-brown-900">Ancré dans le village</p>
               <p class="text-xs text-brown-800/70 mt-1">Depuis plus de 15 ans au service des gourmands.</p>
             </div>
@@ -450,7 +469,7 @@
           <!-- Address Card -->
           <div class="bg-white p-8 rounded-2xl border border-cream-300/80 shadow-sm reveal flex flex-col justify-between">
             <div class="space-y-4">
-              <div class="w-12 h-12 bg-rust-500/10 text-rust-600 rounded-xl flex items-center justify-center text-2xl">📍</div>
+              <div class="w-12 h-12 bg-rust-500/10 text-rust-600 rounded-xl flex items-center justify-center text-xl font-bold">📍</div>
               <h3 class="font-serif text-xl font-bold text-brown-900">Notre Adresse</h3>
               <p class="text-sm text-brown-800/80 leading-relaxed">
                 12 Place de l'Église<br>
@@ -467,7 +486,7 @@
           <!-- Hours Card with Dynamic Highlight -->
           <div class="bg-white p-8 rounded-2xl border border-cream-300/80 shadow-sm reveal flex flex-col justify-between">
             <div class="space-y-4">
-              <div class="w-12 h-12 bg-gold-500/20 text-brown-900 rounded-xl flex items-center justify-center text-2xl">⏰</div>
+              <div class="w-12 h-12 bg-gold-500/20 text-brown-900 rounded-xl flex items-center justify-center text-xl font-bold">⏰</div>
               <h3 class="font-serif text-xl font-bold text-brown-900">Horaires d'Ouverture</h3>
               
               <ul class="text-xs space-y-2 text-brown-800/80" id="schedule-list">
@@ -485,7 +504,7 @@
           <!-- Contact Card -->
           <div class="bg-white p-8 rounded-2xl border border-cream-300/80 shadow-sm reveal flex flex-col justify-between">
             <div class="space-y-4">
-              <div class="w-12 h-12 bg-rust-500/10 text-rust-600 rounded-xl flex items-center justify-center text-2xl">📞</div>
+              <div class="w-12 h-12 bg-rust-500/10 text-rust-600 rounded-xl flex items-center justify-center text-xl font-bold">📞</div>
               <h3 class="font-serif text-xl font-bold text-brown-900">Contact & Commandes</h3>
               <p class="text-sm text-brown-800/80 leading-relaxed">
                 Pour vos commandes spéciales ou événements (gâteaux, pièces montées, pains spéciaux).
@@ -533,10 +552,10 @@
         <div>
           <h4 class="font-serif text-sm font-bold text-gold-400 uppercase tracking-wider mb-4">Engagements</h4>
           <ul class="text-xs space-y-2 text-cream-200/80">
-            <li>🌾 100% Farine Française</li>
-            <li>🧈 Beurre AOP Charentes-Poitou</li>
-            <li>🥖 Levain Naturel Maison</li>
-            <li>♻️ Anti-gaspillage alimentaire</li>
+            <li>✓ 100% Farine Française</li>
+            <li>✓ Beurre AOP Charentes-Poitou</li>
+            <li>✓ Levain Naturel Maison</li>
+            <li>✓ Anti-gaspillage alimentaire</li>
           </ul>
         </div>
 
